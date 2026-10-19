@@ -14,6 +14,7 @@ IRO is a web-based outlet where **AAUA students** and **indigenes of Akungba, Iw
 | d. Use-case diagram | Actors and use cases | [docs/use-case/IRO_UseCase.drawio](docs/use-case/IRO_UseCase.drawio) · [PNG](docs/use-case/IRO_UseCase.png) |
 | e. SRS | Functional and non-functional requirements, component interactions | [docs/srs/IRO_SRS.pdf](docs/srs/IRO_SRS.pdf) · [DOCX](docs/srs/IRO_SRS.docx) |
 | j. Print pack | Object listing and code listing (10pt) | [docs/listings/](docs/listings/) |
+| **Submission** | **One PDF to print: cover, contents, SRS, use-case, Ishikawa, object and code listings** | [**docs/IRO_Submission.pdf**](docs/IRO_Submission.pdf) |
 
 `.drawio` files open at [app.diagrams.net](https://app.diagrams.net) (File → Open from → Device).
 
@@ -48,4 +49,9 @@ docs/
   listings/       IRO_Object_Listing.*, IRO_Code_Listing.*, build_listings.py
 ```
 
-To regenerate the code listing after changing the code, run `python3 docs/listings/build_listings.py`.
+After changing the code or documents, rebuild the listings and the submission PDF:
+
+```
+python3 docs/listings/build_listings.py
+python3 docs/build_submission.py
+```
