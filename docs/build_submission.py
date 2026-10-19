@@ -1,11 +1,15 @@
-"""Builds docs/IRO_Submission.pdf – the single print pack for physical submission.
+"""Builds the print packs for physical submission.
 
-Order (as requested in the brief): cover & contents, SRS, Use-Case diagram,
-Ishikawa diagram, Object listing, Code listing.
+docs/IRO_Submission.pdf       – 5-page pack (condensed SRS, both diagrams, object
+                                listing, IssueStore code listing), from
+                                docs/IRO_Submission_5page.html.
+docs/IRO_Submission_Full.pdf  – full pack: cover & contents, full SRS, Use-Case
+                                diagram, Ishikawa diagram, Object listing, Code listing.
 
 Run from the repository root:  python3 docs/build_submission.py
 Needs Chromium/Chrome and pdfunite (poppler-utils).
 """
+import html
 import pathlib
 import re
 import shutil
@@ -109,9 +113,28 @@ def main():
             ("4. Object Listing", DOCS / "listings" / "IRO_Object_Listing.pdf"),
             ("5. Code Listing", DOCS / "listings" / "IRO_Code_Listing.pdf"),
         ]
-        out = DOCS / "IRO_Submission.pdf"
+        out = DOCS / "IRO_Submission_Full.pdf"
         subprocess.run(["pdfunite", str(cover(tmp, sections)), *[str(p) for _, p in sections], str(out)], check=True)
         print("wrote", out.relative_to(ROOT), f"({pages(out)} pages)")
+    short_pack()
+
+
+def short_pack():
+    """Fill the 5-page template with the IssueStore source and print it."""
+    src = (ROOT / "app" / "js" / "store.js").read_text(encoding="utf-8").split("\n")
+    start = next(i for i, l in enumerate(src) if l.startswith("const IssueStore"))
+    end = next(i for i in range(start, len(src)) if src[i] == "};")
+    rows = "".join(f"<tr><td class='n'>{i + 1}</td><td>{html.escape(src[i]) or ' '}</td></tr>"
+                   for i in range(start, end + 1))
+    template = (DOCS / "IRO_Submission_5page.html").read_text(encoding="utf-8")
+    filled = DOCS / "_submission_build.html"  # next to the template so image paths resolve
+    filled.write_text(template.replace("<!--CODE_LISTING-->", f"<table class='code'>{rows}</table>"), encoding="utf-8")
+    out = DOCS / "IRO_Submission.pdf"
+    try:
+        to_pdf(filled, out)
+    finally:
+        filled.unlink()
+    print("wrote", out.relative_to(ROOT), f"({pages(out)} pages)")
 
 
 if __name__ == "__main__":
