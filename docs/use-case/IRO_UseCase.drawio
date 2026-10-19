@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="IROUseCase" name="IRO Use Case">
+    <mxGraphModel dx="1240" dy="840" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1240" pageHeight="840" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="boundary" value="IRO – Issues Reporting Outlet (System Boundary)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f4f7f5;strokeColor=#0b6e4f;strokeWidth=2;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1"><mxGeometry x="270" y="50" width="700" height="770" as="geometry" /></mxCell>
+        <mxCell id="c2" value="IRO – Use-Case Diagram" style="text;html=1;fontSize=20;fontStyle=1;align=center;" vertex="1" parent="1"><mxGeometry x="420" y="8" width="400" height="30" as="geometry" /></mxCell>
+        <mxCell id="reporter" value="Reporter" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="125" y="270" width="30" height="60" as="geometry" /></mxCell>
+        <mxCell id="student" value="Student" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="55" y="530" width="30" height="60" as="geometry" /></mxCell>
+        <mxCell id="indigene" value="Indigene" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="195" y="530" width="30" height="60" as="geometry" /></mxCell>
+        <mxCell id="officer" value="IRO Desk&lt;br&gt;Officer (Admin)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1095" y="310" width="30" height="60" as="geometry" /></mxCell>
+        <mxCell id="authority" value="Escalation Authority&lt;br&gt;(Students' Affairs /&lt;br&gt;Community Leader / Police)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1095" y="660" width="30" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucGuide" value="View Home &amp;
+Reporting Guidelines" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="300" y="100" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucSubmit" value="Submit Issue Report" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="290" y="300" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucTrack" value="Track Report Status" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="300" y="490" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucAnon" value="Report Anonymously" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="520" y="130" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucValidate" value="Validate Report Details" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="530" y="240" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucTicket" value="Generate Ticket ID" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="530" y="370" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucHistory" value="View Status History" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="520" y="570" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucLogin" value="Log In to Desk" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="750" y="80" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucList" value="View &amp; Filter Reports" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="750" y="170" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucDetail" value="View Report Details" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="750" y="260" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucUpdate" value="Update Report Status" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="750" y="540" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucEscalate" value="Escalate Report" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="750" y="670" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucDelete" value="Delete Report" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="750" y="350" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="ucStats" value="View Dashboard
+Statistics" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0b6e4f;fontSize=12;" vertex="1" parent="1"><mxGeometry x="750" y="440" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="c3" value="" style="endArrow=block;endFill=0;html=1;endSize=14;" edge="1" parent="1" source="student" target="reporter"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c4" value="" style="endArrow=block;endFill=0;html=1;endSize=14;" edge="1" parent="1" source="indigene" target="reporter"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c5" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="reporter" target="ucGuide"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c6" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="reporter" target="ucSubmit"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c7" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="reporter" target="ucTrack"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c8" value="«extend»" style="endArrow=open;dashed=1;html=1;endSize=10;" edge="1" parent="1" source="ucAnon" target="ucSubmit"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c9" value="«include»" style="endArrow=open;dashed=1;html=1;endSize=10;" edge="1" parent="1" source="ucSubmit" target="ucValidate"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c10" value="«include»" style="endArrow=open;dashed=1;html=1;endSize=10;" edge="1" parent="1" source="ucSubmit" target="ucTicket"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c11" value="«include»" style="endArrow=open;dashed=1;html=1;endSize=10;" edge="1" parent="1" source="ucTrack" target="ucHistory"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c12" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="officer" target="ucLogin"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c13" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="officer" target="ucList"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c14" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="officer" target="ucDetail"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c15" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="officer" target="ucUpdate"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c16" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="officer" target="ucDelete"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c17" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="officer" target="ucStats"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c18" value="«extend»" style="endArrow=open;dashed=1;html=1;endSize=10;" edge="1" parent="1" source="ucEscalate" target="ucUpdate"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c19" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="authority" target="ucEscalate"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

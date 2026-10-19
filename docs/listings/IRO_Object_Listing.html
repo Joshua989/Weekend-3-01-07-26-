@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IRO – Object Listing</title>
+<style>
+  @page { size: A4; margin: 18mm; }
+  body { font-family: "Times New Roman", Times, serif; font-size: 10pt; line-height: 1.35; color: #000; max-width: 800px; margin: 0 auto; }
+  h1 { font-size: 14pt; text-align: center; margin-bottom: 2pt; }
+  .sub { text-align: center; margin-top: 0; }
+  h2 { font-size: 11pt; margin: 14pt 0 4pt; border-bottom: 1px solid #000; page-break-after: avoid; }
+  table { border-collapse: collapse; width: 100%; margin: 4pt 0 8pt; }
+  tr { page-break-inside: avoid; }
+  th, td { border: 1px solid #000; padding: 3pt 5pt; text-align: left; vertical-align: top; font-size: 10pt; }
+  th { background: #e6e6e6; }
+  code { font-family: "Courier New", monospace; font-size: 9.5pt; }
+</style>
+</head>
+<body>
+<h1>IRO – Issues Reporting Outlet: Object Listing</h1>
+<p class="sub">CSC426 Weekly Dev – Weekend 3 · Joshua Omolafe (Joshua989)</p>
+
+<p>IRO is written in plain JavaScript as a small set of singleton objects. Each page has one controller
+object, and all of them share the configuration object <code>IRO</code> and the data-layer object
+<code>IssueStore</code>. The tables below list every object with its properties and methods.</p>
+
+<h2>1. Object summary</h2>
+<table>
+  <tr><th>Object</th><th>File</th><th>Kind</th><th>Used by</th><th>Purpose</th></tr>
+  <tr><td><code>IRO</code></td><td>js/store.js</td><td>Configuration</td><td>All pages</td><td>Constant lists and settings.</td></tr>
+  <tr><td><code>IssueStore</code></td><td>js/store.js</td><td>Data layer</td><td>All controllers</td><td>Create, read, update and delete issues; statistics.</td></tr>
+  <tr><td>Helper functions</td><td>js/store.js</td><td>Utilities</td><td>All controllers</td><td>Escaping, date formatting, badges, filling selects.</td></tr>
+  <tr><td><code>ReportForm</code></td><td>js/report.js</td><td>Controller</td><td>report.html</td><td>Report submission.</td></tr>
+  <tr><td><code>Tracker</code></td><td>js/track.js</td><td>Controller</td><td>track.html</td><td>Status tracking by ticket ID.</td></tr>
+  <tr><td><code>AdminDesk</code></td><td>js/admin.js</td><td>Controller</td><td>admin.html</td><td>Desk officer dashboard.</td></tr>
+  <tr><td>Issue</td><td>(data record)</td><td>Entity</td><td>IssueStore</td><td>One reported issue stored in localStorage.</td></tr>
+</table>
+
+<h2>2. IRO (configuration object)</h2>
+<table>
+  <tr><th style="width:24%">Property</th><th style="width:14%">Type</th><th>Value / description</th></tr>
+  <tr><td><code>STORAGE_KEY</code></td><td>String</td><td>"iro_issues" – localStorage key holding all issues.</td></tr>
+  <tr><td><code>ADMIN_PASSCODE</code></td><td>String</td><td>"iro2026" – demo passcode for the admin desk.</td></tr>
+  <tr><td><code>CATEGORIES</code></td><td>Array&lt;String&gt;</td><td>10 issue categories (Security / Safety … Other).</td></tr>
+  <tr><td><code>COMMUNITIES</code></td><td>Array&lt;String&gt;</td><td>Akungba, Iwaro, Etioro, Ayegunle, Oke-Oka, Other.</td></tr>
+  <tr><td><code>STATUSES</code></td><td>Array&lt;String&gt;</td><td>Submitted, Under Review, Escalated, Resolved, Closed.</td></tr>
+  <tr><td><code>SEVERITIES</code></td><td>Array&lt;String&gt;</td><td>Low, Medium, High, Emergency.</td></tr>
+</table>
+
+<h2>3. IssueStore (data-layer object)</h2>
+<table>
+  <tr><th style="width:30%">Method</th><th style="width:18%">Returns</th><th>Description</th></tr>
+  <tr><td><code>getAll()</code></td><td>Array&lt;Issue&gt;</td><td>Reads all issues from localStorage, newest first; returns [] if data is missing or corrupt.</td></tr>
+  <tr><td><code>saveAll(list)</code></td><td>void</td><td>Writes the whole list back to localStorage as JSON.</td></tr>
+  <tr><td><code>generateId()</code></td><td>String</td><td>Builds a unique ticket ID IRO-YY-XXXXX from an unambiguous alphabet.</td></tr>
+  <tr><td><code>create(data)</code></td><td>Issue</td><td>Builds an Issue from form data (drops name/contact if anonymous), sets status Submitted with first history entry, saves it.</td></tr>
+  <tr><td><code>findById(id)</code></td><td>Issue | null</td><td>Case-insensitive lookup by ticket ID.</td></tr>
+  <tr><td><code>updateStatus(id, status, note)</code></td><td>Issue | null</td><td>Sets the new status and appends {status, note, at} to history.</td></tr>
+  <tr><td><code>remove(id)</code></td><td>void</td><td>Deletes an issue.</td></tr>
+  <tr><td><code>stats()</code></td><td>Object</td><td>{ total, open, emergency, byStatus } for the dashboard.</td></tr>
+</table>
+
+<h2>4. Helper functions (global)</h2>
+<table>
+  <tr><th style="width:34%">Function</th><th style="width:14%">Returns</th><th>Description</th></tr>
+  <tr><td><code>escapeHtml(str)</code></td><td>String</td><td>Replaces &amp; &lt; &gt; " ' with HTML entities to prevent XSS.</td></tr>
+  <tr><td><code>formatDate(iso)</code></td><td>String</td><td>Formats an ISO date, e.g. "7 Jul 2026, 14:05".</td></tr>
+  <tr><td><code>statusBadge(status)</code></td><td>String (HTML)</td><td>Coloured badge markup for a status.</td></tr>
+  <tr><td><code>fillSelect(select, items, placeholder)</code></td><td>void</td><td>Fills a &lt;select&gt; with option elements.</td></tr>
+</table>
+
+<h2>5. ReportForm (controller for report.html)</h2>
+<table>
+  <tr><th style="width:30%">Member</th><th style="width:14%">Type</th><th>Description</th></tr>
+  <tr><td><code>form</code></td><td>HTMLFormElement</td><td>The #reportForm element.</td></tr>
+  <tr><td><code>el(id)</code></td><td>Function</td><td>Shortcut for document.getElementById.</td></tr>
+  <tr><td><code>init()</code></td><td>Method</td><td>Fills drop-downs, sets the max date, attaches event listeners.</td></tr>
+  <tr><td><code>toggleReporterFields()</code></td><td>Method</td><td>Shows matric field for students, community list for indigenes.</td></tr>
+  <tr><td><code>toggleIdentity()</code></td><td>Method</td><td>Hides name/contact when Anonymous is ticked.</td></tr>
+  <tr><td><code>collect()</code></td><td>Method → Object</td><td>Reads every form field into a plain object.</td></tr>
+  <tr><td><code>validate(d)</code></td><td>Method → String</td><td>Returns an error message, or "" if valid.</td></tr>
+  <tr><td><code>submit(e)</code></td><td>Method</td><td>Validates, calls IssueStore.create(), shows the ticket ID.</td></tr>
+</table>
+
+<h2>6. Tracker (controller for track.html)</h2>
+<table>
+  <tr><th style="width:30%">Member</th><th style="width:14%">Type</th><th>Description</th></tr>
+  <tr><td><code>el(id)</code></td><td>Function</td><td>Shortcut for document.getElementById.</td></tr>
+  <tr><td><code>init()</code></td><td>Method</td><td>Attaches the form handler; auto-tracks an <code>?id=</code> in the URL.</td></tr>
+  <tr><td><code>show(id)</code></td><td>Method</td><td>Finds the issue and renders title, meta, status and history (no personal data).</td></tr>
+</table>
+
+<h2>7. AdminDesk (controller for admin.html)</h2>
+<table>
+  <tr><th style="width:30%">Member</th><th style="width:14%">Type</th><th>Description</th></tr>
+  <tr><td><code>SESSION_KEY</code></td><td>String</td><td>"iro_admin" – sessionStorage flag for a logged-in officer.</td></tr>
+  <tr><td><code>selectedId</code></td><td>String | null</td><td>Ticket ID of the report open in the detail panel.</td></tr>
+  <tr><td><code>el(id)</code></td><td>Function</td><td>Shortcut for document.getElementById.</td></tr>
+  <tr><td><code>init()</code></td><td>Method</td><td>Fills filters, attaches listeners, restores an existing session.</td></tr>
+  <tr><td><code>login(e)</code> / <code>logout()</code></td><td>Method</td><td>Checks passcode and opens the dashboard / ends the session.</td></tr>
+  <tr><td><code>showDashboard()</code></td><td>Method</td><td>Hides login card, shows dashboard, renders data.</td></tr>
+  <tr><td><code>filtered()</code></td><td>Method → Array</td><td>Issues matching search text and status/category/reporter filters.</td></tr>
+  <tr><td><code>render()</code></td><td>Method</td><td>Updates statistics cards and the report table.</td></tr>
+  <tr><td><code>openDetail(id)</code></td><td>Method</td><td>Shows full report details, reporter identity and history.</td></tr>
+  <tr><td><code>saveUpdate(e)</code></td><td>Method</td><td>Calls IssueStore.updateStatus() with the chosen status and note.</td></tr>
+  <tr><td><code>deleteSelected()</code></td><td>Method</td><td>Confirms, then deletes the open report.</td></tr>
+</table>
+
+<h2>8. Issue (data record)</h2>
+<table>
+  <tr><th style="width:24%">Property</th><th style="width:20%">Type</th><th>Description</th></tr>
+  <tr><td><code>id</code></td><td>String</td><td>Ticket ID.</td></tr>
+  <tr><td><code>reporterType</code></td><td>String</td><td>Student | Indigene | Other.</td></tr>
+  <tr><td><code>anonymous</code></td><td>Boolean</td><td>Reporter chose anonymity.</td></tr>
+  <tr><td><code>name</code>, <code>contact</code></td><td>String</td><td>Empty when anonymous.</td></tr>
+  <tr><td><code>matricNo</code>, <code>community</code></td><td>String</td><td>Student matric number / indigene community.</td></tr>
+  <tr><td><code>category</code>, <code>severity</code></td><td>String</td><td>From IRO.CATEGORIES / IRO.SEVERITIES.</td></tr>
+  <tr><td><code>location</code>, <code>incidentDate</code></td><td>String</td><td>Where and when (YYYY-MM-DD).</td></tr>
+  <tr><td><code>title</code>, <code>description</code></td><td>String</td><td>Summary and full account.</td></tr>
+  <tr><td><code>status</code></td><td>String</td><td>Current status.</td></tr>
+  <tr><td><code>createdAt</code></td><td>String (ISO)</td><td>Submission time.</td></tr>
+  <tr><td><code>history</code></td><td>Array&lt;{status, note, at}&gt;</td><td>Append-only status log.</td></tr>
+</table>
+
+<h2>9. HTML page objects (main DOM elements)</h2>
+<table>
+  <tr><th style="width:18%">Page</th><th>Key element IDs</th></tr>
+  <tr><td>index.html</td><td>#categoryList</td></tr>
+  <tr><td>report.html</td><td>#reportForm, #reporterType, #matricGroup, #matricNo, #communityGroup, #community, #anonymous, #identityGroup, #name, #contact, #category, #severity, #location, #incidentDate, #title, #description, #formError, #formCard, #successCard, #ticketId, #trackLink</td></tr>
+  <tr><td>track.html</td><td>#trackForm, #ticketInput, #trackError, #resultCard, #resTitle, #resMeta, #resStatus, #resHistory</td></tr>
+  <tr><td>admin.html</td><td>#loginCard, #loginForm, #passcode, #loginError, #dashboard, #logoutBtn, #statTotal, #statOpen, #statEmergency, #statResolved, #search, #filterStatus, #filterCategory, #filterReporter, #issueRows, #emptyMsg, #detailCard, #dTitle, #dMeta, #dReporter, #dDesc, #dHistory, #updateForm, #newStatus, #note, #deleteBtn</td></tr>
+</table>
+</body>
+</html>

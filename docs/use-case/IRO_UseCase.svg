@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="840" viewBox="0 0 1240 840">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d2a24"/></marker>
+  <marker id="open" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" orient="auto"><path d="M0,0 L10,5 L0,10" fill="none" stroke="#1d2a24" stroke-width="1.5"/></marker>
+  <marker id="tri" viewBox="0 0 12 12" refX="12" refY="6" markerWidth="14" markerHeight="14" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#fff" stroke="#1d2a24" stroke-width="1.2"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="270" y="50" width="700" height="770" fill="#f4f7f5" stroke="#0b6e4f" stroke-width="2"/>
+<text x="620" y="68" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="620" y="68">IRO – Issues Reporting Outlet (System Boundary)</tspan></text>
+<text x="620" y="22" font-size="20" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="620" y="22">IRO – Use-Case Diagram</tspan></text>
+<g stroke="#1d2a24" stroke-width="2" fill="none"><circle cx="140" cy="278" r="8" fill="#fff"/><line x1="140" y1="286" x2="140" y2="310"/><line x1="125" y1="295" x2="155" y2="295"/><line x1="140" y1="310" x2="128" y2="330"/><line x1="140" y1="310" x2="152" y2="330"/></g>
+<text x="140" y="344" font-size="13" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="140" y="344">Reporter</tspan></text>
+<g stroke="#1d2a24" stroke-width="2" fill="none"><circle cx="70" cy="538" r="8" fill="#fff"/><line x1="70" y1="546" x2="70" y2="570"/><line x1="55" y1="555" x2="85" y2="555"/><line x1="70" y1="570" x2="58" y2="590"/><line x1="70" y1="570" x2="82" y2="590"/></g>
+<text x="70" y="604" font-size="13" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="70" y="604">Student</tspan></text>
+<g stroke="#1d2a24" stroke-width="2" fill="none"><circle cx="210" cy="538" r="8" fill="#fff"/><line x1="210" y1="546" x2="210" y2="570"/><line x1="195" y1="555" x2="225" y2="555"/><line x1="210" y1="570" x2="198" y2="590"/><line x1="210" y1="570" x2="222" y2="590"/></g>
+<text x="210" y="604" font-size="13" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="210" y="604">Indigene</tspan></text>
+<g stroke="#1d2a24" stroke-width="2" fill="none"><circle cx="1110" cy="318" r="8" fill="#fff"/><line x1="1110" y1="326" x2="1110" y2="350"/><line x1="1095" y1="335" x2="1125" y2="335"/><line x1="1110" y1="350" x2="1098" y2="370"/><line x1="1110" y1="350" x2="1122" y2="370"/></g>
+<text x="1110" y="382.875" font-size="13" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="1110" y="382.875">IRO Desk</tspan><tspan x="1110" y="399.125">Officer (Admin)</tspan></text>
+<g stroke="#1d2a24" stroke-width="2" fill="none"><circle cx="1110" cy="668" r="8" fill="#fff"/><line x1="1110" y1="676" x2="1110" y2="700"/><line x1="1095" y1="685" x2="1125" y2="685"/><line x1="1110" y1="700" x2="1098" y2="720"/><line x1="1110" y1="700" x2="1122" y2="720"/></g>
+<text x="1110" y="731.75" font-size="13" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="1110" y="731.75">Escalation Authority</tspan><tspan x="1110" y="748">(Students' Affairs /</tspan><tspan x="1110" y="764.25">Community Leader / Police)</tspan></text>
+<ellipse cx="400" cy="130" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="400" y="122.1875" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="400" y="122.1875">View Home &amp;</tspan><tspan x="400" y="137.8125">Reporting Guidelines</tspan></text>
+<ellipse cx="390" cy="330" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="390" y="330" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="390" y="330">Submit Issue Report</tspan></text>
+<ellipse cx="400" cy="520" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="400" y="520" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="400" y="520">Track Report Status</tspan></text>
+<ellipse cx="620" cy="160" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="620" y="160" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="620" y="160">Report Anonymously</tspan></text>
+<ellipse cx="630" cy="270" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="630" y="270" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="630" y="270">Validate Report Details</tspan></text>
+<ellipse cx="630" cy="400" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="630" y="400" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="630" y="400">Generate Ticket ID</tspan></text>
+<ellipse cx="620" cy="600" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="620" y="600" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="620" y="600">View Status History</tspan></text>
+<ellipse cx="850" cy="110" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="850" y="110" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="850" y="110">Log In to Desk</tspan></text>
+<ellipse cx="850" cy="200" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="850" y="200" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="850" y="200">View &amp; Filter Reports</tspan></text>
+<ellipse cx="850" cy="290" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="850" y="290" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="850" y="290">View Report Details</tspan></text>
+<ellipse cx="850" cy="570" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="850" y="570" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="850" y="570">Update Report Status</tspan></text>
+<ellipse cx="850" cy="700" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="850" y="700" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="850" y="700">Escalate Report</tspan></text>
+<ellipse cx="850" cy="380" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="850" y="380" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="850" y="380">Delete Report</tspan></text>
+<ellipse cx="850" cy="470" rx="100" ry="30" fill="#ffffff" stroke="#0b6e4f" stroke-width="1.6"/>
+<text x="850" y="462.1875" font-size="12.5" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#1d2a24" font-family="Arial, Helvetica, sans-serif"><tspan x="850" y="462.1875">View Dashboard</tspan><tspan x="850" y="477.8125">Statistics</tspan></text>
+<line x1="78.8" y1="527.2" x2="123.4" y2="361.8" stroke="#1d2a24" stroke-width="1.3" marker-end="url(#tri)"/>
+<line x1="201.2" y1="527.2" x2="156.6" y2="361.8" stroke="#1d2a24" stroke-width="1.3" marker-end="url(#tri)"/>
+<line x1="168.5" y1="281.4" x2="358.3" y2="157.3" stroke="#1d2a24" stroke-width="1.3"/>
+<line x1="173.8" y1="304.1" x2="297.2" y2="318.9" stroke="#1d2a24" stroke-width="1.3"/>
+<line x1="166.0" y1="322.0" x2="366.6" y2="491.7" stroke="#1d2a24" stroke-width="1.3"/>
+<line x1="582.4" y1="187.8" x2="427.6" y2="302.2" stroke="#1d2a24" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<rect x="475" y="236" width="60" height="16" fill="#f4f7f5"/>
+<text x="505" y="244" font-size="11" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#5c6b64" font-family="Arial, Helvetica, sans-serif"><tspan x="505" y="244">«extend»</tspan></text>
+<line x1="466.8" y1="310.8" x2="553.2" y2="289.2" stroke="#1d2a24" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<rect x="480" y="291" width="60" height="16" fill="#f4f7f5"/>
+<text x="510" y="299" font-size="11" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#5c6b64" font-family="Arial, Helvetica, sans-serif"><tspan x="510" y="299">«include»</tspan></text>
+<line x1="461.7" y1="350.9" x2="558.3" y2="379.1" stroke="#1d2a24" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<rect x="480" y="356" width="60" height="16" fill="#f4f7f5"/>
+<text x="510" y="364" font-size="11" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#5c6b64" font-family="Arial, Helvetica, sans-serif"><tspan x="510" y="364">«include»</tspan></text>
+<line x1="463.6" y1="543.1" x2="556.4" y2="576.9" stroke="#1d2a24" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<rect x="480" y="551" width="60" height="16" fill="#f4f7f5"/>
+<text x="510" y="559" font-size="11" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#5c6b64" font-family="Arial, Helvetica, sans-serif"><tspan x="510" y="559">«include»</tspan></text>
+<line x1="1084.5" y1="317.5" x2="882.1" y2="138.4" stroke="#1d2a24" stroke-width="1.3"/>
+<line x1="1080.1" y1="323.9" x2="898.7" y2="226.2" stroke="#1d2a24" stroke-width="1.3"/>
+<line x1="1076.6" y1="333.6" x2="934.2" y2="306.2" stroke="#1d2a24" stroke-width="1.3"/>
+<line x1="1084.5" y1="362.5" x2="882.1" y2="541.6" stroke="#1d2a24" stroke-width="1.3"/>
+<line x1="1076.4" y1="345.2" x2="939.0" y2="366.3" stroke="#1d2a24" stroke-width="1.3"/>
+<line x1="1079.6" y1="355.2" x2="901.4" y2="444.3" stroke="#1d2a24" stroke-width="1.3"/>
+<line x1="850.0" y1="670.0" x2="850.0" y2="600.0" stroke="#1d2a24" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<rect x="820" y="626" width="60" height="16" fill="#f4f7f5"/>
+<text x="850" y="634" font-size="11" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#5c6b64" font-family="Arial, Helvetica, sans-serif"><tspan x="850" y="634">«extend»</tspan></text>
+<line x1="1076.0" y1="691.3" x2="949.2" y2="696.2" stroke="#1d2a24" stroke-width="1.3"/>
+</svg>

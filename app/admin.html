@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Desk – IRO</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html">IR<span>O</span></a>
+      <ul>
+        <li><a class="link" href="index.html">Home</a></li>
+        <li><a class="link" href="report.html">Report an Issue</a></li>
+        <li><a class="link" href="track.html">Track Report</a></li>
+        <li><a class="link active" href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Login -->
+    <div class="card" id="loginCard" style="max-width:420px;margin:0 auto">
+      <h2>IRO Desk Login</h2>
+      <form id="loginForm">
+        <label for="passcode">Passcode</label>
+        <input type="password" id="passcode" required>
+        <p class="error" id="loginError"></p>
+        <button class="btn" type="submit">Log in</button>
+      </form>
+      <p class="opt"><small>Demo passcode: <code>iro2026</code></small></p>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <h2 style="margin:0">Issue Management Desk</h2>
+        <button class="btn small secondary" id="logoutBtn">Log out</button>
+      </div>
+
+      <section class="grid" style="margin:16px 0">
+        <div class="card"><div class="stat" id="statTotal">0</div>Total reports</div>
+        <div class="card"><div class="stat" id="statOpen">0</div>Open</div>
+        <div class="card"><div class="stat" id="statEmergency" style="color:var(--danger)">0</div>Active emergencies</div>
+        <div class="card"><div class="stat" id="statResolved">0</div>Resolved</div>
+      </section>
+
+      <div class="toolbar">
+        <input id="search" placeholder="Search ticket, title or location">
+        <select id="filterStatus"></select>
+        <select id="filterCategory"></select>
+        <select id="filterReporter">
+          <option value="">All reporters</option>
+          <option>Student</option>
+          <option>Indigene</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Ticket</th><th>Issue</th><th>Reporter</th><th>Severity</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody id="issueRows"></tbody>
+        </table>
+      </div>
+      <p id="emptyMsg" class="hidden">No reports match the current filters.</p>
+
+      <!-- Detail / update panel -->
+      <div class="card hidden" id="detailCard" style="margin-top:16px">
+        <h3 id="dTitle"></h3>
+        <p id="dMeta"></p>
+        <p id="dReporter"></p>
+        <p id="dDesc" style="white-space:pre-wrap"></p>
+        <h4>History</h4>
+        <ul class="timeline" id="dHistory"></ul>
+        <h4>Update status</h4>
+        <form id="updateForm" class="row">
+          <div>
+            <label for="newStatus">New status</label>
+            <select id="newStatus"></select>
+          </div>
+          <div>
+            <label for="note">Note to reporter</label>
+            <input id="note" placeholder="e.g. Forwarded to Students' Affairs">
+          </div>
+          <div style="align-self:end">
+            <button class="btn" type="submit">Save update</button>
+            <button class="btn small" type="button" id="deleteBtn" style="background:var(--danger);color:#fff">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>IRO &copy; 2026 · CSC426 Weekly Dev · Adekunle Ajasin University, Akungba-Akoko</footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

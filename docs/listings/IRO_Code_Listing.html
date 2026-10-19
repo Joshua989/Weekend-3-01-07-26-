@@ -1,0 +1,916 @@
+<!DOCTYPE html><html><head><meta charset='UTF-8'><title>IRO – Code Listing</title><style>
+@page { size: A4; margin: 15mm; }
+body { font-family: "Times New Roman", serif; font-size: 10pt; }
+h1 { font-size: 14pt; text-align: center; }
+h2 { font-size: 11pt; border-bottom: 1px solid #000; margin-top: 16pt; page-break-after: avoid; }
+table { border-collapse: collapse; width: 100%; font-family: "Courier New", monospace; font-size: 10pt; }
+td { padding: 0 4pt; vertical-align: top; white-space: pre-wrap; word-break: break-all; }
+td.n { width: 3em; text-align: right; color: #555; border-right: 1px solid #999; user-select: none; }
+</style></head><body>
+<h1>IRO – Issues Reporting Outlet: Code Listing</h1>
+<p style='text-align:center'>CSC426 Weekly Dev – Weekend 3 · Joshua Omolafe (Joshua989)</p>
+<h2>app/index.html (71 lines)</h2><table>
+<tr><td class='n'>1</td><td>&lt;!DOCTYPE html&gt;</td></tr>
+<tr><td class='n'>2</td><td>&lt;html lang=&quot;en&quot;&gt;</td></tr>
+<tr><td class='n'>3</td><td>&lt;head&gt;</td></tr>
+<tr><td class='n'>4</td><td>  &lt;meta charset=&quot;UTF-8&quot;&gt;</td></tr>
+<tr><td class='n'>5</td><td>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</td></tr>
+<tr><td class='n'>6</td><td>  &lt;title&gt;IRO – Issues Reporting Outlet&lt;/title&gt;</td></tr>
+<tr><td class='n'>7</td><td>  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</td></tr>
+<tr><td class='n'>8</td><td>&lt;/head&gt;</td></tr>
+<tr><td class='n'>9</td><td>&lt;body&gt;</td></tr>
+<tr><td class='n'>10</td><td>  &lt;header&gt;</td></tr>
+<tr><td class='n'>11</td><td>    &lt;nav class=&quot;nav&quot;&gt;</td></tr>
+<tr><td class='n'>12</td><td>      &lt;a class=&quot;brand&quot; href=&quot;index.html&quot;&gt;IR&lt;span&gt;O&lt;/span&gt;&lt;/a&gt;</td></tr>
+<tr><td class='n'>13</td><td>      &lt;ul&gt;</td></tr>
+<tr><td class='n'>14</td><td>        &lt;li&gt;&lt;a class=&quot;link active&quot; href=&quot;index.html&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>15</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;report.html&quot;&gt;Report an Issue&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>16</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;track.html&quot;&gt;Track Report&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>17</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;admin.html&quot;&gt;Admin&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>18</td><td>      &lt;/ul&gt;</td></tr>
+<tr><td class='n'>19</td><td>    &lt;/nav&gt;</td></tr>
+<tr><td class='n'>20</td><td>  &lt;/header&gt;</td></tr>
+<tr><td class='n'>21</td><td> </td></tr>
+<tr><td class='n'>22</td><td>  &lt;main&gt;</td></tr>
+<tr><td class='n'>23</td><td>    &lt;section class=&quot;hero&quot;&gt;</td></tr>
+<tr><td class='n'>24</td><td>      &lt;h1&gt;Issues Reporting Outlet&lt;/h1&gt;</td></tr>
+<tr><td class='n'>25</td><td>      &lt;p&gt;</td></tr>
+<tr><td class='n'>26</td><td>        One safe place for AAUA students and the indigenes of Akungba, Iwaro,</td></tr>
+<tr><td class='n'>27</td><td>        Etioro, Ayegunle and neighbouring communities to report issues that</td></tr>
+<tr><td class='n'>28</td><td>        affect town–gown relations — and to follow them until they are resolved.</td></tr>
+<tr><td class='n'>29</td><td>      &lt;/p&gt;</td></tr>
+<tr><td class='n'>30</td><td>      &lt;a class=&quot;btn&quot; href=&quot;report.html&quot;&gt;Report an Issue&lt;/a&gt;</td></tr>
+<tr><td class='n'>31</td><td>      &lt;a class=&quot;btn secondary&quot; href=&quot;track.html&quot;&gt;Track My Report&lt;/a&gt;</td></tr>
+<tr><td class='n'>32</td><td>    &lt;/section&gt;</td></tr>
+<tr><td class='n'>33</td><td> </td></tr>
+<tr><td class='n'>34</td><td>    &lt;section class=&quot;grid&quot;&gt;</td></tr>
+<tr><td class='n'>35</td><td>      &lt;div class=&quot;card&quot;&gt;</td></tr>
+<tr><td class='n'>36</td><td>        &lt;h3&gt;1. Report&lt;/h3&gt;</td></tr>
+<tr><td class='n'>37</td><td>        &lt;p&gt;Describe what happened, where and when. You can stay anonymous.&lt;/p&gt;</td></tr>
+<tr><td class='n'>38</td><td>      &lt;/div&gt;</td></tr>
+<tr><td class='n'>39</td><td>      &lt;div class=&quot;card&quot;&gt;</td></tr>
+<tr><td class='n'>40</td><td>        &lt;h3&gt;2. Get a ticket&lt;/h3&gt;</td></tr>
+<tr><td class='n'>41</td><td>        &lt;p&gt;You receive a ticket ID (e.g. &lt;code&gt;IRO-26-4F7K2&lt;/code&gt;). Keep it safe.&lt;/p&gt;</td></tr>
+<tr><td class='n'>42</td><td>      &lt;/div&gt;</td></tr>
+<tr><td class='n'>43</td><td>      &lt;div class=&quot;card&quot;&gt;</td></tr>
+<tr><td class='n'>44</td><td>        &lt;h3&gt;3. Track&lt;/h3&gt;</td></tr>
+<tr><td class='n'>45</td><td>        &lt;p&gt;Use your ticket ID to see the status and any updates from the IRO desk.&lt;/p&gt;</td></tr>
+<tr><td class='n'>46</td><td>      &lt;/div&gt;</td></tr>
+<tr><td class='n'>47</td><td>      &lt;div class=&quot;card&quot;&gt;</td></tr>
+<tr><td class='n'>48</td><td>        &lt;h3&gt;4. Resolution&lt;/h3&gt;</td></tr>
+<tr><td class='n'>49</td><td>        &lt;p&gt;The IRO desk reviews, escalates to the right authority and records the outcome.&lt;/p&gt;</td></tr>
+<tr><td class='n'>50</td><td>      &lt;/div&gt;</td></tr>
+<tr><td class='n'>51</td><td>    &lt;/section&gt;</td></tr>
+<tr><td class='n'>52</td><td> </td></tr>
+<tr><td class='n'>53</td><td>    &lt;section class=&quot;card&quot; style=&quot;margin-top:24px&quot;&gt;</td></tr>
+<tr><td class='n'>54</td><td>      &lt;h2&gt;What can I report?&lt;/h2&gt;</td></tr>
+<tr><td class='n'>55</td><td>      &lt;p id=&quot;categoryList&quot;&gt;&lt;/p&gt;</td></tr>
+<tr><td class='n'>56</td><td>      &lt;div class=&quot;notice&quot;&gt;</td></tr>
+<tr><td class='n'>57</td><td>        &lt;strong&gt;Emergency?&lt;/strong&gt; IRO is not an emergency line. If anyone is in</td></tr>
+<tr><td class='n'>58</td><td>        immediate danger, contact campus security or the nearest police division first,</td></tr>
+<tr><td class='n'>59</td><td>        then file a report here.</td></tr>
+<tr><td class='n'>60</td><td>      &lt;/div&gt;</td></tr>
+<tr><td class='n'>61</td><td>    &lt;/section&gt;</td></tr>
+<tr><td class='n'>62</td><td>  &lt;/main&gt;</td></tr>
+<tr><td class='n'>63</td><td> </td></tr>
+<tr><td class='n'>64</td><td>  &lt;footer&gt;IRO &amp;copy; 2026 · CSC426 Weekly Dev · Adekunle Ajasin University, Akungba-Akoko&lt;/footer&gt;</td></tr>
+<tr><td class='n'>65</td><td> </td></tr>
+<tr><td class='n'>66</td><td>  &lt;script src=&quot;js/store.js&quot;&gt;&lt;/script&gt;</td></tr>
+<tr><td class='n'>67</td><td>  &lt;script&gt;</td></tr>
+<tr><td class='n'>68</td><td>    document.getElementById(&quot;categoryList&quot;).textContent = IRO.CATEGORIES.join(&quot; · &quot;);</td></tr>
+<tr><td class='n'>69</td><td>  &lt;/script&gt;</td></tr>
+<tr><td class='n'>70</td><td>&lt;/body&gt;</td></tr>
+<tr><td class='n'>71</td><td>&lt;/html&gt;</td></tr>
+</table>
+<h2>app/report.html (107 lines)</h2><table>
+<tr><td class='n'>1</td><td>&lt;!DOCTYPE html&gt;</td></tr>
+<tr><td class='n'>2</td><td>&lt;html lang=&quot;en&quot;&gt;</td></tr>
+<tr><td class='n'>3</td><td>&lt;head&gt;</td></tr>
+<tr><td class='n'>4</td><td>  &lt;meta charset=&quot;UTF-8&quot;&gt;</td></tr>
+<tr><td class='n'>5</td><td>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</td></tr>
+<tr><td class='n'>6</td><td>  &lt;title&gt;Report an Issue – IRO&lt;/title&gt;</td></tr>
+<tr><td class='n'>7</td><td>  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</td></tr>
+<tr><td class='n'>8</td><td>&lt;/head&gt;</td></tr>
+<tr><td class='n'>9</td><td>&lt;body&gt;</td></tr>
+<tr><td class='n'>10</td><td>  &lt;header&gt;</td></tr>
+<tr><td class='n'>11</td><td>    &lt;nav class=&quot;nav&quot;&gt;</td></tr>
+<tr><td class='n'>12</td><td>      &lt;a class=&quot;brand&quot; href=&quot;index.html&quot;&gt;IR&lt;span&gt;O&lt;/span&gt;&lt;/a&gt;</td></tr>
+<tr><td class='n'>13</td><td>      &lt;ul&gt;</td></tr>
+<tr><td class='n'>14</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;index.html&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>15</td><td>        &lt;li&gt;&lt;a class=&quot;link active&quot; href=&quot;report.html&quot;&gt;Report an Issue&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>16</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;track.html&quot;&gt;Track Report&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>17</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;admin.html&quot;&gt;Admin&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>18</td><td>      &lt;/ul&gt;</td></tr>
+<tr><td class='n'>19</td><td>    &lt;/nav&gt;</td></tr>
+<tr><td class='n'>20</td><td>  &lt;/header&gt;</td></tr>
+<tr><td class='n'>21</td><td> </td></tr>
+<tr><td class='n'>22</td><td>  &lt;main&gt;</td></tr>
+<tr><td class='n'>23</td><td>    &lt;div class=&quot;card&quot; id=&quot;formCard&quot;&gt;</td></tr>
+<tr><td class='n'>24</td><td>      &lt;h2&gt;Report an Issue&lt;/h2&gt;</td></tr>
+<tr><td class='n'>25</td><td>      &lt;p&gt;Fields marked &lt;span class=&quot;opt&quot;&gt;(optional)&lt;/span&gt; can be left blank.&lt;/p&gt;</td></tr>
+<tr><td class='n'>26</td><td> </td></tr>
+<tr><td class='n'>27</td><td>      &lt;form id=&quot;reportForm&quot; novalidate&gt;</td></tr>
+<tr><td class='n'>28</td><td>        &lt;h3&gt;About you&lt;/h3&gt;</td></tr>
+<tr><td class='n'>29</td><td>        &lt;div class=&quot;row&quot;&gt;</td></tr>
+<tr><td class='n'>30</td><td>          &lt;div&gt;</td></tr>
+<tr><td class='n'>31</td><td>            &lt;label for=&quot;reporterType&quot;&gt;I am a&lt;/label&gt;</td></tr>
+<tr><td class='n'>32</td><td>            &lt;select id=&quot;reporterType&quot; required&gt;</td></tr>
+<tr><td class='n'>33</td><td>              &lt;option value=&quot;&quot;&gt;-- Select --&lt;/option&gt;</td></tr>
+<tr><td class='n'>34</td><td>              &lt;option&gt;Student&lt;/option&gt;</td></tr>
+<tr><td class='n'>35</td><td>              &lt;option&gt;Indigene&lt;/option&gt;</td></tr>
+<tr><td class='n'>36</td><td>              &lt;option&gt;Other&lt;/option&gt;</td></tr>
+<tr><td class='n'>37</td><td>            &lt;/select&gt;</td></tr>
+<tr><td class='n'>38</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>39</td><td>          &lt;div id=&quot;matricGroup&quot; class=&quot;hidden&quot;&gt;</td></tr>
+<tr><td class='n'>40</td><td>            &lt;label for=&quot;matricNo&quot;&gt;Matric number &lt;span class=&quot;opt&quot;&gt;(optional)&lt;/span&gt;&lt;/label&gt;</td></tr>
+<tr><td class='n'>41</td><td>            &lt;input id=&quot;matricNo&quot; placeholder=&quot;e.g. 210404012&quot;&gt;</td></tr>
+<tr><td class='n'>42</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>43</td><td>          &lt;div id=&quot;communityGroup&quot; class=&quot;hidden&quot;&gt;</td></tr>
+<tr><td class='n'>44</td><td>            &lt;label for=&quot;community&quot;&gt;Community&lt;/label&gt;</td></tr>
+<tr><td class='n'>45</td><td>            &lt;select id=&quot;community&quot;&gt;&lt;/select&gt;</td></tr>
+<tr><td class='n'>46</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>47</td><td>        &lt;/div&gt;</td></tr>
+<tr><td class='n'>48</td><td> </td></tr>
+<tr><td class='n'>49</td><td>        &lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; id=&quot;anonymous&quot;&gt; Report anonymously (your name and contact will not be stored)&lt;/label&gt;</td></tr>
+<tr><td class='n'>50</td><td> </td></tr>
+<tr><td class='n'>51</td><td>        &lt;div class=&quot;row&quot; id=&quot;identityGroup&quot;&gt;</td></tr>
+<tr><td class='n'>52</td><td>          &lt;div&gt;</td></tr>
+<tr><td class='n'>53</td><td>            &lt;label for=&quot;name&quot;&gt;Full name &lt;span class=&quot;opt&quot;&gt;(optional)&lt;/span&gt;&lt;/label&gt;</td></tr>
+<tr><td class='n'>54</td><td>            &lt;input id=&quot;name&quot; autocomplete=&quot;name&quot;&gt;</td></tr>
+<tr><td class='n'>55</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>56</td><td>          &lt;div&gt;</td></tr>
+<tr><td class='n'>57</td><td>            &lt;label for=&quot;contact&quot;&gt;Phone or email &lt;span class=&quot;opt&quot;&gt;(optional)&lt;/span&gt;&lt;/label&gt;</td></tr>
+<tr><td class='n'>58</td><td>            &lt;input id=&quot;contact&quot; autocomplete=&quot;email&quot;&gt;</td></tr>
+<tr><td class='n'>59</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>60</td><td>        &lt;/div&gt;</td></tr>
+<tr><td class='n'>61</td><td> </td></tr>
+<tr><td class='n'>62</td><td>        &lt;h3&gt;The issue&lt;/h3&gt;</td></tr>
+<tr><td class='n'>63</td><td>        &lt;div class=&quot;row&quot;&gt;</td></tr>
+<tr><td class='n'>64</td><td>          &lt;div&gt;</td></tr>
+<tr><td class='n'>65</td><td>            &lt;label for=&quot;category&quot;&gt;Category&lt;/label&gt;</td></tr>
+<tr><td class='n'>66</td><td>            &lt;select id=&quot;category&quot; required&gt;&lt;/select&gt;</td></tr>
+<tr><td class='n'>67</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>68</td><td>          &lt;div&gt;</td></tr>
+<tr><td class='n'>69</td><td>            &lt;label for=&quot;severity&quot;&gt;Severity&lt;/label&gt;</td></tr>
+<tr><td class='n'>70</td><td>            &lt;select id=&quot;severity&quot; required&gt;&lt;/select&gt;</td></tr>
+<tr><td class='n'>71</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>72</td><td>        &lt;/div&gt;</td></tr>
+<tr><td class='n'>73</td><td>        &lt;div class=&quot;row&quot;&gt;</td></tr>
+<tr><td class='n'>74</td><td>          &lt;div&gt;</td></tr>
+<tr><td class='n'>75</td><td>            &lt;label for=&quot;location&quot;&gt;Location&lt;/label&gt;</td></tr>
+<tr><td class='n'>76</td><td>            &lt;input id=&quot;location&quot; required placeholder=&quot;e.g. Ibaka junction, Iwaro&quot;&gt;</td></tr>
+<tr><td class='n'>77</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>78</td><td>          &lt;div&gt;</td></tr>
+<tr><td class='n'>79</td><td>            &lt;label for=&quot;incidentDate&quot;&gt;Date of incident&lt;/label&gt;</td></tr>
+<tr><td class='n'>80</td><td>            &lt;input type=&quot;date&quot; id=&quot;incidentDate&quot; required&gt;</td></tr>
+<tr><td class='n'>81</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>82</td><td>        &lt;/div&gt;</td></tr>
+<tr><td class='n'>83</td><td>        &lt;label for=&quot;title&quot;&gt;Short title&lt;/label&gt;</td></tr>
+<tr><td class='n'>84</td><td>        &lt;input id=&quot;title&quot; required maxlength=&quot;100&quot; placeholder=&quot;e.g. Landlord increased rent mid-session&quot;&gt;</td></tr>
+<tr><td class='n'>85</td><td>        &lt;label for=&quot;description&quot;&gt;Describe what happened&lt;/label&gt;</td></tr>
+<tr><td class='n'>86</td><td>        &lt;textarea id=&quot;description&quot; required maxlength=&quot;2000&quot;&gt;&lt;/textarea&gt;</td></tr>
+<tr><td class='n'>87</td><td> </td></tr>
+<tr><td class='n'>88</td><td>        &lt;p id=&quot;formError&quot; class=&quot;error&quot;&gt;&lt;/p&gt;</td></tr>
+<tr><td class='n'>89</td><td>        &lt;button class=&quot;btn&quot; type=&quot;submit&quot;&gt;Submit Report&lt;/button&gt;</td></tr>
+<tr><td class='n'>90</td><td>      &lt;/form&gt;</td></tr>
+<tr><td class='n'>91</td><td>    &lt;/div&gt;</td></tr>
+<tr><td class='n'>92</td><td> </td></tr>
+<tr><td class='n'>93</td><td>    &lt;div class=&quot;card hidden&quot; id=&quot;successCard&quot;&gt;</td></tr>
+<tr><td class='n'>94</td><td>      &lt;h2&gt;Report submitted&lt;/h2&gt;</td></tr>
+<tr><td class='n'>95</td><td>      &lt;p&gt;Thank you. Your report has been received. Save this ticket ID — you need it to track your report:&lt;/p&gt;</td></tr>
+<tr><td class='n'>96</td><td>      &lt;div class=&quot;notice&quot;&gt;&lt;span class=&quot;ticket&quot; id=&quot;ticketId&quot;&gt;&lt;/span&gt;&lt;/div&gt;</td></tr>
+<tr><td class='n'>97</td><td>      &lt;a class=&quot;btn secondary&quot; id=&quot;trackLink&quot; href=&quot;track.html&quot;&gt;Track this report&lt;/a&gt;</td></tr>
+<tr><td class='n'>98</td><td>      &lt;a class=&quot;btn&quot; href=&quot;report.html&quot;&gt;Report another issue&lt;/a&gt;</td></tr>
+<tr><td class='n'>99</td><td>    &lt;/div&gt;</td></tr>
+<tr><td class='n'>100</td><td>  &lt;/main&gt;</td></tr>
+<tr><td class='n'>101</td><td> </td></tr>
+<tr><td class='n'>102</td><td>  &lt;footer&gt;IRO &amp;copy; 2026 · CSC426 Weekly Dev · Adekunle Ajasin University, Akungba-Akoko&lt;/footer&gt;</td></tr>
+<tr><td class='n'>103</td><td> </td></tr>
+<tr><td class='n'>104</td><td>  &lt;script src=&quot;js/store.js&quot;&gt;&lt;/script&gt;</td></tr>
+<tr><td class='n'>105</td><td>  &lt;script src=&quot;js/report.js&quot;&gt;&lt;/script&gt;</td></tr>
+<tr><td class='n'>106</td><td>&lt;/body&gt;</td></tr>
+<tr><td class='n'>107</td><td>&lt;/html&gt;</td></tr>
+</table>
+<h2>app/track.html (46 lines)</h2><table>
+<tr><td class='n'>1</td><td>&lt;!DOCTYPE html&gt;</td></tr>
+<tr><td class='n'>2</td><td>&lt;html lang=&quot;en&quot;&gt;</td></tr>
+<tr><td class='n'>3</td><td>&lt;head&gt;</td></tr>
+<tr><td class='n'>4</td><td>  &lt;meta charset=&quot;UTF-8&quot;&gt;</td></tr>
+<tr><td class='n'>5</td><td>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</td></tr>
+<tr><td class='n'>6</td><td>  &lt;title&gt;Track Report – IRO&lt;/title&gt;</td></tr>
+<tr><td class='n'>7</td><td>  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</td></tr>
+<tr><td class='n'>8</td><td>&lt;/head&gt;</td></tr>
+<tr><td class='n'>9</td><td>&lt;body&gt;</td></tr>
+<tr><td class='n'>10</td><td>  &lt;header&gt;</td></tr>
+<tr><td class='n'>11</td><td>    &lt;nav class=&quot;nav&quot;&gt;</td></tr>
+<tr><td class='n'>12</td><td>      &lt;a class=&quot;brand&quot; href=&quot;index.html&quot;&gt;IR&lt;span&gt;O&lt;/span&gt;&lt;/a&gt;</td></tr>
+<tr><td class='n'>13</td><td>      &lt;ul&gt;</td></tr>
+<tr><td class='n'>14</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;index.html&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>15</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;report.html&quot;&gt;Report an Issue&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>16</td><td>        &lt;li&gt;&lt;a class=&quot;link active&quot; href=&quot;track.html&quot;&gt;Track Report&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>17</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;admin.html&quot;&gt;Admin&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>18</td><td>      &lt;/ul&gt;</td></tr>
+<tr><td class='n'>19</td><td>    &lt;/nav&gt;</td></tr>
+<tr><td class='n'>20</td><td>  &lt;/header&gt;</td></tr>
+<tr><td class='n'>21</td><td> </td></tr>
+<tr><td class='n'>22</td><td>  &lt;main&gt;</td></tr>
+<tr><td class='n'>23</td><td>    &lt;div class=&quot;card&quot;&gt;</td></tr>
+<tr><td class='n'>24</td><td>      &lt;h2&gt;Track a Report&lt;/h2&gt;</td></tr>
+<tr><td class='n'>25</td><td>      &lt;form id=&quot;trackForm&quot; class=&quot;toolbar&quot;&gt;</td></tr>
+<tr><td class='n'>26</td><td>        &lt;input id=&quot;ticketInput&quot; placeholder=&quot;Enter ticket ID, e.g. IRO-26-4F7K2&quot; required&gt;</td></tr>
+<tr><td class='n'>27</td><td>        &lt;button class=&quot;btn&quot; type=&quot;submit&quot; style=&quot;flex:0 0 auto&quot;&gt;Track&lt;/button&gt;</td></tr>
+<tr><td class='n'>28</td><td>      &lt;/form&gt;</td></tr>
+<tr><td class='n'>29</td><td>      &lt;p id=&quot;trackError&quot; class=&quot;error&quot;&gt;&lt;/p&gt;</td></tr>
+<tr><td class='n'>30</td><td>    &lt;/div&gt;</td></tr>
+<tr><td class='n'>31</td><td> </td></tr>
+<tr><td class='n'>32</td><td>    &lt;div class=&quot;card hidden&quot; id=&quot;resultCard&quot; style=&quot;margin-top:16px&quot;&gt;</td></tr>
+<tr><td class='n'>33</td><td>      &lt;h2 id=&quot;resTitle&quot;&gt;&lt;/h2&gt;</td></tr>
+<tr><td class='n'>34</td><td>      &lt;p id=&quot;resMeta&quot;&gt;&lt;/p&gt;</td></tr>
+<tr><td class='n'>35</td><td>      &lt;p&gt;&lt;strong&gt;Current status:&lt;/strong&gt; &lt;span id=&quot;resStatus&quot;&gt;&lt;/span&gt;&lt;/p&gt;</td></tr>
+<tr><td class='n'>36</td><td>      &lt;h3&gt;Progress&lt;/h3&gt;</td></tr>
+<tr><td class='n'>37</td><td>      &lt;ul class=&quot;timeline&quot; id=&quot;resHistory&quot;&gt;&lt;/ul&gt;</td></tr>
+<tr><td class='n'>38</td><td>    &lt;/div&gt;</td></tr>
+<tr><td class='n'>39</td><td>  &lt;/main&gt;</td></tr>
+<tr><td class='n'>40</td><td> </td></tr>
+<tr><td class='n'>41</td><td>  &lt;footer&gt;IRO &amp;copy; 2026 · CSC426 Weekly Dev · Adekunle Ajasin University, Akungba-Akoko&lt;/footer&gt;</td></tr>
+<tr><td class='n'>42</td><td> </td></tr>
+<tr><td class='n'>43</td><td>  &lt;script src=&quot;js/store.js&quot;&gt;&lt;/script&gt;</td></tr>
+<tr><td class='n'>44</td><td>  &lt;script src=&quot;js/track.js&quot;&gt;&lt;/script&gt;</td></tr>
+<tr><td class='n'>45</td><td>&lt;/body&gt;</td></tr>
+<tr><td class='n'>46</td><td>&lt;/html&gt;</td></tr>
+</table>
+<h2>app/admin.html (103 lines)</h2><table>
+<tr><td class='n'>1</td><td>&lt;!DOCTYPE html&gt;</td></tr>
+<tr><td class='n'>2</td><td>&lt;html lang=&quot;en&quot;&gt;</td></tr>
+<tr><td class='n'>3</td><td>&lt;head&gt;</td></tr>
+<tr><td class='n'>4</td><td>  &lt;meta charset=&quot;UTF-8&quot;&gt;</td></tr>
+<tr><td class='n'>5</td><td>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</td></tr>
+<tr><td class='n'>6</td><td>  &lt;title&gt;Admin Desk – IRO&lt;/title&gt;</td></tr>
+<tr><td class='n'>7</td><td>  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</td></tr>
+<tr><td class='n'>8</td><td>&lt;/head&gt;</td></tr>
+<tr><td class='n'>9</td><td>&lt;body&gt;</td></tr>
+<tr><td class='n'>10</td><td>  &lt;header&gt;</td></tr>
+<tr><td class='n'>11</td><td>    &lt;nav class=&quot;nav&quot;&gt;</td></tr>
+<tr><td class='n'>12</td><td>      &lt;a class=&quot;brand&quot; href=&quot;index.html&quot;&gt;IR&lt;span&gt;O&lt;/span&gt;&lt;/a&gt;</td></tr>
+<tr><td class='n'>13</td><td>      &lt;ul&gt;</td></tr>
+<tr><td class='n'>14</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;index.html&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>15</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;report.html&quot;&gt;Report an Issue&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>16</td><td>        &lt;li&gt;&lt;a class=&quot;link&quot; href=&quot;track.html&quot;&gt;Track Report&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>17</td><td>        &lt;li&gt;&lt;a class=&quot;link active&quot; href=&quot;admin.html&quot;&gt;Admin&lt;/a&gt;&lt;/li&gt;</td></tr>
+<tr><td class='n'>18</td><td>      &lt;/ul&gt;</td></tr>
+<tr><td class='n'>19</td><td>    &lt;/nav&gt;</td></tr>
+<tr><td class='n'>20</td><td>  &lt;/header&gt;</td></tr>
+<tr><td class='n'>21</td><td> </td></tr>
+<tr><td class='n'>22</td><td>  &lt;main&gt;</td></tr>
+<tr><td class='n'>23</td><td>    &lt;!-- Login --&gt;</td></tr>
+<tr><td class='n'>24</td><td>    &lt;div class=&quot;card&quot; id=&quot;loginCard&quot; style=&quot;max-width:420px;margin:0 auto&quot;&gt;</td></tr>
+<tr><td class='n'>25</td><td>      &lt;h2&gt;IRO Desk Login&lt;/h2&gt;</td></tr>
+<tr><td class='n'>26</td><td>      &lt;form id=&quot;loginForm&quot;&gt;</td></tr>
+<tr><td class='n'>27</td><td>        &lt;label for=&quot;passcode&quot;&gt;Passcode&lt;/label&gt;</td></tr>
+<tr><td class='n'>28</td><td>        &lt;input type=&quot;password&quot; id=&quot;passcode&quot; required&gt;</td></tr>
+<tr><td class='n'>29</td><td>        &lt;p class=&quot;error&quot; id=&quot;loginError&quot;&gt;&lt;/p&gt;</td></tr>
+<tr><td class='n'>30</td><td>        &lt;button class=&quot;btn&quot; type=&quot;submit&quot;&gt;Log in&lt;/button&gt;</td></tr>
+<tr><td class='n'>31</td><td>      &lt;/form&gt;</td></tr>
+<tr><td class='n'>32</td><td>      &lt;p class=&quot;opt&quot;&gt;&lt;small&gt;Demo passcode: &lt;code&gt;iro2026&lt;/code&gt;&lt;/small&gt;&lt;/p&gt;</td></tr>
+<tr><td class='n'>33</td><td>    &lt;/div&gt;</td></tr>
+<tr><td class='n'>34</td><td> </td></tr>
+<tr><td class='n'>35</td><td>    &lt;!-- Dashboard --&gt;</td></tr>
+<tr><td class='n'>36</td><td>    &lt;div id=&quot;dashboard&quot; class=&quot;hidden&quot;&gt;</td></tr>
+<tr><td class='n'>37</td><td>      &lt;div style=&quot;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px&quot;&gt;</td></tr>
+<tr><td class='n'>38</td><td>        &lt;h2 style=&quot;margin:0&quot;&gt;Issue Management Desk&lt;/h2&gt;</td></tr>
+<tr><td class='n'>39</td><td>        &lt;button class=&quot;btn small secondary&quot; id=&quot;logoutBtn&quot;&gt;Log out&lt;/button&gt;</td></tr>
+<tr><td class='n'>40</td><td>      &lt;/div&gt;</td></tr>
+<tr><td class='n'>41</td><td> </td></tr>
+<tr><td class='n'>42</td><td>      &lt;section class=&quot;grid&quot; style=&quot;margin:16px 0&quot;&gt;</td></tr>
+<tr><td class='n'>43</td><td>        &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;stat&quot; id=&quot;statTotal&quot;&gt;0&lt;/div&gt;Total reports&lt;/div&gt;</td></tr>
+<tr><td class='n'>44</td><td>        &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;stat&quot; id=&quot;statOpen&quot;&gt;0&lt;/div&gt;Open&lt;/div&gt;</td></tr>
+<tr><td class='n'>45</td><td>        &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;stat&quot; id=&quot;statEmergency&quot; style=&quot;color:var(--danger)&quot;&gt;0&lt;/div&gt;Active emergencies&lt;/div&gt;</td></tr>
+<tr><td class='n'>46</td><td>        &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;stat&quot; id=&quot;statResolved&quot;&gt;0&lt;/div&gt;Resolved&lt;/div&gt;</td></tr>
+<tr><td class='n'>47</td><td>      &lt;/section&gt;</td></tr>
+<tr><td class='n'>48</td><td> </td></tr>
+<tr><td class='n'>49</td><td>      &lt;div class=&quot;toolbar&quot;&gt;</td></tr>
+<tr><td class='n'>50</td><td>        &lt;input id=&quot;search&quot; placeholder=&quot;Search ticket, title or location&quot;&gt;</td></tr>
+<tr><td class='n'>51</td><td>        &lt;select id=&quot;filterStatus&quot;&gt;&lt;/select&gt;</td></tr>
+<tr><td class='n'>52</td><td>        &lt;select id=&quot;filterCategory&quot;&gt;&lt;/select&gt;</td></tr>
+<tr><td class='n'>53</td><td>        &lt;select id=&quot;filterReporter&quot;&gt;</td></tr>
+<tr><td class='n'>54</td><td>          &lt;option value=&quot;&quot;&gt;All reporters&lt;/option&gt;</td></tr>
+<tr><td class='n'>55</td><td>          &lt;option&gt;Student&lt;/option&gt;</td></tr>
+<tr><td class='n'>56</td><td>          &lt;option&gt;Indigene&lt;/option&gt;</td></tr>
+<tr><td class='n'>57</td><td>          &lt;option&gt;Other&lt;/option&gt;</td></tr>
+<tr><td class='n'>58</td><td>        &lt;/select&gt;</td></tr>
+<tr><td class='n'>59</td><td>      &lt;/div&gt;</td></tr>
+<tr><td class='n'>60</td><td> </td></tr>
+<tr><td class='n'>61</td><td>      &lt;div class=&quot;table-wrap&quot;&gt;</td></tr>
+<tr><td class='n'>62</td><td>        &lt;table&gt;</td></tr>
+<tr><td class='n'>63</td><td>          &lt;thead&gt;</td></tr>
+<tr><td class='n'>64</td><td>            &lt;tr&gt;&lt;th&gt;Ticket&lt;/th&gt;&lt;th&gt;Issue&lt;/th&gt;&lt;th&gt;Reporter&lt;/th&gt;&lt;th&gt;Severity&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Action&lt;/th&gt;&lt;/tr&gt;</td></tr>
+<tr><td class='n'>65</td><td>          &lt;/thead&gt;</td></tr>
+<tr><td class='n'>66</td><td>          &lt;tbody id=&quot;issueRows&quot;&gt;&lt;/tbody&gt;</td></tr>
+<tr><td class='n'>67</td><td>        &lt;/table&gt;</td></tr>
+<tr><td class='n'>68</td><td>      &lt;/div&gt;</td></tr>
+<tr><td class='n'>69</td><td>      &lt;p id=&quot;emptyMsg&quot; class=&quot;hidden&quot;&gt;No reports match the current filters.&lt;/p&gt;</td></tr>
+<tr><td class='n'>70</td><td> </td></tr>
+<tr><td class='n'>71</td><td>      &lt;!-- Detail / update panel --&gt;</td></tr>
+<tr><td class='n'>72</td><td>      &lt;div class=&quot;card hidden&quot; id=&quot;detailCard&quot; style=&quot;margin-top:16px&quot;&gt;</td></tr>
+<tr><td class='n'>73</td><td>        &lt;h3 id=&quot;dTitle&quot;&gt;&lt;/h3&gt;</td></tr>
+<tr><td class='n'>74</td><td>        &lt;p id=&quot;dMeta&quot;&gt;&lt;/p&gt;</td></tr>
+<tr><td class='n'>75</td><td>        &lt;p id=&quot;dReporter&quot;&gt;&lt;/p&gt;</td></tr>
+<tr><td class='n'>76</td><td>        &lt;p id=&quot;dDesc&quot; style=&quot;white-space:pre-wrap&quot;&gt;&lt;/p&gt;</td></tr>
+<tr><td class='n'>77</td><td>        &lt;h4&gt;History&lt;/h4&gt;</td></tr>
+<tr><td class='n'>78</td><td>        &lt;ul class=&quot;timeline&quot; id=&quot;dHistory&quot;&gt;&lt;/ul&gt;</td></tr>
+<tr><td class='n'>79</td><td>        &lt;h4&gt;Update status&lt;/h4&gt;</td></tr>
+<tr><td class='n'>80</td><td>        &lt;form id=&quot;updateForm&quot; class=&quot;row&quot;&gt;</td></tr>
+<tr><td class='n'>81</td><td>          &lt;div&gt;</td></tr>
+<tr><td class='n'>82</td><td>            &lt;label for=&quot;newStatus&quot;&gt;New status&lt;/label&gt;</td></tr>
+<tr><td class='n'>83</td><td>            &lt;select id=&quot;newStatus&quot;&gt;&lt;/select&gt;</td></tr>
+<tr><td class='n'>84</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>85</td><td>          &lt;div&gt;</td></tr>
+<tr><td class='n'>86</td><td>            &lt;label for=&quot;note&quot;&gt;Note to reporter&lt;/label&gt;</td></tr>
+<tr><td class='n'>87</td><td>            &lt;input id=&quot;note&quot; placeholder=&quot;e.g. Forwarded to Students&#x27; Affairs&quot;&gt;</td></tr>
+<tr><td class='n'>88</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>89</td><td>          &lt;div style=&quot;align-self:end&quot;&gt;</td></tr>
+<tr><td class='n'>90</td><td>            &lt;button class=&quot;btn&quot; type=&quot;submit&quot;&gt;Save update&lt;/button&gt;</td></tr>
+<tr><td class='n'>91</td><td>            &lt;button class=&quot;btn small&quot; type=&quot;button&quot; id=&quot;deleteBtn&quot; style=&quot;background:var(--danger);color:#fff&quot;&gt;Delete&lt;/button&gt;</td></tr>
+<tr><td class='n'>92</td><td>          &lt;/div&gt;</td></tr>
+<tr><td class='n'>93</td><td>        &lt;/form&gt;</td></tr>
+<tr><td class='n'>94</td><td>      &lt;/div&gt;</td></tr>
+<tr><td class='n'>95</td><td>    &lt;/div&gt;</td></tr>
+<tr><td class='n'>96</td><td>  &lt;/main&gt;</td></tr>
+<tr><td class='n'>97</td><td> </td></tr>
+<tr><td class='n'>98</td><td>  &lt;footer&gt;IRO &amp;copy; 2026 · CSC426 Weekly Dev · Adekunle Ajasin University, Akungba-Akoko&lt;/footer&gt;</td></tr>
+<tr><td class='n'>99</td><td> </td></tr>
+<tr><td class='n'>100</td><td>  &lt;script src=&quot;js/store.js&quot;&gt;&lt;/script&gt;</td></tr>
+<tr><td class='n'>101</td><td>  &lt;script src=&quot;js/admin.js&quot;&gt;&lt;/script&gt;</td></tr>
+<tr><td class='n'>102</td><td>&lt;/body&gt;</td></tr>
+<tr><td class='n'>103</td><td>&lt;/html&gt;</td></tr>
+</table>
+<h2>app/css/style.css (154 lines)</h2><table>
+<tr><td class='n'>1</td><td>/* IRO – Issues Reporting Outlet : shared stylesheet */</td></tr>
+<tr><td class='n'>2</td><td>:root {</td></tr>
+<tr><td class='n'>3</td><td>  --green: #0b6e4f;</td></tr>
+<tr><td class='n'>4</td><td>  --green-dark: #08513a;</td></tr>
+<tr><td class='n'>5</td><td>  --gold: #f2a900;</td></tr>
+<tr><td class='n'>6</td><td>  --bg: #f4f7f5;</td></tr>
+<tr><td class='n'>7</td><td>  --card: #ffffff;</td></tr>
+<tr><td class='n'>8</td><td>  --text: #1d2a24;</td></tr>
+<tr><td class='n'>9</td><td>  --muted: #5c6b64;</td></tr>
+<tr><td class='n'>10</td><td>  --border: #d6e0db;</td></tr>
+<tr><td class='n'>11</td><td>  --danger: #b3261e;</td></tr>
+<tr><td class='n'>12</td><td>  --radius: 10px;</td></tr>
+<tr><td class='n'>13</td><td>}</td></tr>
+<tr><td class='n'>14</td><td> </td></tr>
+<tr><td class='n'>15</td><td>* { box-sizing: border-box; }</td></tr>
+<tr><td class='n'>16</td><td> </td></tr>
+<tr><td class='n'>17</td><td>body {</td></tr>
+<tr><td class='n'>18</td><td>  margin: 0;</td></tr>
+<tr><td class='n'>19</td><td>  font-family: &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</td></tr>
+<tr><td class='n'>20</td><td>  background: var(--bg);</td></tr>
+<tr><td class='n'>21</td><td>  color: var(--text);</td></tr>
+<tr><td class='n'>22</td><td>  line-height: 1.5;</td></tr>
+<tr><td class='n'>23</td><td>}</td></tr>
+<tr><td class='n'>24</td><td> </td></tr>
+<tr><td class='n'>25</td><td>a { color: var(--green); }</td></tr>
+<tr><td class='n'>26</td><td> </td></tr>
+<tr><td class='n'>27</td><td>/* ---------- Header / navigation ---------- */</td></tr>
+<tr><td class='n'>28</td><td>header {</td></tr>
+<tr><td class='n'>29</td><td>  background: var(--green);</td></tr>
+<tr><td class='n'>30</td><td>  color: #fff;</td></tr>
+<tr><td class='n'>31</td><td>}</td></tr>
+<tr><td class='n'>32</td><td>.nav {</td></tr>
+<tr><td class='n'>33</td><td>  max-width: 1000px;</td></tr>
+<tr><td class='n'>34</td><td>  margin: 0 auto;</td></tr>
+<tr><td class='n'>35</td><td>  padding: 14px 16px;</td></tr>
+<tr><td class='n'>36</td><td>  display: flex;</td></tr>
+<tr><td class='n'>37</td><td>  align-items: center;</td></tr>
+<tr><td class='n'>38</td><td>  justify-content: space-between;</td></tr>
+<tr><td class='n'>39</td><td>  flex-wrap: wrap;</td></tr>
+<tr><td class='n'>40</td><td>  gap: 10px;</td></tr>
+<tr><td class='n'>41</td><td>}</td></tr>
+<tr><td class='n'>42</td><td>.brand { font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }</td></tr>
+<tr><td class='n'>43</td><td>.brand span { color: var(--gold); }</td></tr>
+<tr><td class='n'>44</td><td>.nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; flex-wrap: wrap; }</td></tr>
+<tr><td class='n'>45</td><td>.nav a.link {</td></tr>
+<tr><td class='n'>46</td><td>  color: #fff;</td></tr>
+<tr><td class='n'>47</td><td>  text-decoration: none;</td></tr>
+<tr><td class='n'>48</td><td>  padding: 6px 12px;</td></tr>
+<tr><td class='n'>49</td><td>  border-radius: 6px;</td></tr>
+<tr><td class='n'>50</td><td>}</td></tr>
+<tr><td class='n'>51</td><td>.nav a.link:hover, .nav a.link.active { background: var(--green-dark); }</td></tr>
+<tr><td class='n'>52</td><td> </td></tr>
+<tr><td class='n'>53</td><td>/* ---------- Layout ---------- */</td></tr>
+<tr><td class='n'>54</td><td>main { max-width: 1000px; margin: 0 auto; padding: 24px 16px 48px; }</td></tr>
+<tr><td class='n'>55</td><td> </td></tr>
+<tr><td class='n'>56</td><td>.hero {</td></tr>
+<tr><td class='n'>57</td><td>  background: linear-gradient(135deg, var(--green), var(--green-dark));</td></tr>
+<tr><td class='n'>58</td><td>  color: #fff;</td></tr>
+<tr><td class='n'>59</td><td>  border-radius: var(--radius);</td></tr>
+<tr><td class='n'>60</td><td>  padding: 36px 28px;</td></tr>
+<tr><td class='n'>61</td><td>  margin-bottom: 24px;</td></tr>
+<tr><td class='n'>62</td><td>}</td></tr>
+<tr><td class='n'>63</td><td>.hero h1 { margin: 0 0 8px; font-size: 1.9rem; }</td></tr>
+<tr><td class='n'>64</td><td>.hero p { margin: 0 0 18px; max-width: 640px; opacity: .95; }</td></tr>
+<tr><td class='n'>65</td><td> </td></tr>
+<tr><td class='n'>66</td><td>.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }</td></tr>
+<tr><td class='n'>67</td><td> </td></tr>
+<tr><td class='n'>68</td><td>.card {</td></tr>
+<tr><td class='n'>69</td><td>  background: var(--card);</td></tr>
+<tr><td class='n'>70</td><td>  border: 1px solid var(--border);</td></tr>
+<tr><td class='n'>71</td><td>  border-radius: var(--radius);</td></tr>
+<tr><td class='n'>72</td><td>  padding: 20px;</td></tr>
+<tr><td class='n'>73</td><td>}</td></tr>
+<tr><td class='n'>74</td><td>.card h2, .card h3 { margin-top: 0; color: var(--green-dark); }</td></tr>
+<tr><td class='n'>75</td><td> </td></tr>
+<tr><td class='n'>76</td><td>/* ---------- Forms ---------- */</td></tr>
+<tr><td class='n'>77</td><td>form h3 { margin: 24px 0 0; }</td></tr>
+<tr><td class='n'>78</td><td>form .row { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }</td></tr>
+<tr><td class='n'>79</td><td>label { display: block; font-weight: 600; margin: 12px 0 4px; }</td></tr>
+<tr><td class='n'>80</td><td>.opt { font-weight: 400; color: var(--muted); font-size: .85rem; }</td></tr>
+<tr><td class='n'>81</td><td>input, select, textarea {</td></tr>
+<tr><td class='n'>82</td><td>  width: 100%;</td></tr>
+<tr><td class='n'>83</td><td>  padding: 10px;</td></tr>
+<tr><td class='n'>84</td><td>  border: 1px solid var(--border);</td></tr>
+<tr><td class='n'>85</td><td>  border-radius: 6px;</td></tr>
+<tr><td class='n'>86</td><td>  font: inherit;</td></tr>
+<tr><td class='n'>87</td><td>  background: #fff;</td></tr>
+<tr><td class='n'>88</td><td>}</td></tr>
+<tr><td class='n'>89</td><td>textarea { min-height: 120px; resize: vertical; }</td></tr>
+<tr><td class='n'>90</td><td>input:focus, select:focus, textarea:focus { outline: 2px solid var(--gold); border-color: var(--gold); }</td></tr>
+<tr><td class='n'>91</td><td>.check { display: flex; align-items: center; gap: 8px; font-weight: 400; }</td></tr>
+<tr><td class='n'>92</td><td>.check input { width: auto; }</td></tr>
+<tr><td class='n'>93</td><td>.hidden { display: none !important; }</td></tr>
+<tr><td class='n'>94</td><td> </td></tr>
+<tr><td class='n'>95</td><td>.btn {</td></tr>
+<tr><td class='n'>96</td><td>  display: inline-block;</td></tr>
+<tr><td class='n'>97</td><td>  background: var(--gold);</td></tr>
+<tr><td class='n'>98</td><td>  color: #1d2a24;</td></tr>
+<tr><td class='n'>99</td><td>  border: none;</td></tr>
+<tr><td class='n'>100</td><td>  padding: 10px 20px;</td></tr>
+<tr><td class='n'>101</td><td>  border-radius: 6px;</td></tr>
+<tr><td class='n'>102</td><td>  font-weight: 700;</td></tr>
+<tr><td class='n'>103</td><td>  cursor: pointer;</td></tr>
+<tr><td class='n'>104</td><td>  text-decoration: none;</td></tr>
+<tr><td class='n'>105</td><td>  font-size: 1rem;</td></tr>
+<tr><td class='n'>106</td><td>}</td></tr>
+<tr><td class='n'>107</td><td>.btn:hover { filter: brightness(.95); }</td></tr>
+<tr><td class='n'>108</td><td>.btn.secondary { background: var(--green); color: #fff; }</td></tr>
+<tr><td class='n'>109</td><td>.btn.small { padding: 5px 10px; font-size: .85rem; }</td></tr>
+<tr><td class='n'>110</td><td> </td></tr>
+<tr><td class='n'>111</td><td>.error { color: var(--danger); font-size: .9rem; margin-top: 4px; }</td></tr>
+<tr><td class='n'>112</td><td> </td></tr>
+<tr><td class='n'>113</td><td>.notice {</td></tr>
+<tr><td class='n'>114</td><td>  background: #e7f4ee;</td></tr>
+<tr><td class='n'>115</td><td>  border-left: 4px solid var(--green);</td></tr>
+<tr><td class='n'>116</td><td>  padding: 14px 16px;</td></tr>
+<tr><td class='n'>117</td><td>  border-radius: 6px;</td></tr>
+<tr><td class='n'>118</td><td>  margin: 16px 0;</td></tr>
+<tr><td class='n'>119</td><td>}</td></tr>
+<tr><td class='n'>120</td><td>.ticket { font-family: monospace; font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }</td></tr>
+<tr><td class='n'>121</td><td> </td></tr>
+<tr><td class='n'>122</td><td>/* ---------- Status badges &amp; timeline ---------- */</td></tr>
+<tr><td class='n'>123</td><td>.badge {</td></tr>
+<tr><td class='n'>124</td><td>  display: inline-block;</td></tr>
+<tr><td class='n'>125</td><td>  padding: 2px 10px;</td></tr>
+<tr><td class='n'>126</td><td>  border-radius: 999px;</td></tr>
+<tr><td class='n'>127</td><td>  font-size: .8rem;</td></tr>
+<tr><td class='n'>128</td><td>  font-weight: 700;</td></tr>
+<tr><td class='n'>129</td><td>  white-space: nowrap;</td></tr>
+<tr><td class='n'>130</td><td>}</td></tr>
+<tr><td class='n'>131</td><td>.badge.Submitted   { background: #e3e8ff; color: #2b3a99; }</td></tr>
+<tr><td class='n'>132</td><td>.badge.Under-Review{ background: #fff3cd; color: #7a5a00; }</td></tr>
+<tr><td class='n'>133</td><td>.badge.Escalated   { background: #fde2e1; color: #8c1d18; }</td></tr>
+<tr><td class='n'>134</td><td>.badge.Resolved    { background: #d9f2e4; color: #0b6e4f; }</td></tr>
+<tr><td class='n'>135</td><td>.badge.Closed      { background: #e4e4e4; color: #444; }</td></tr>
+<tr><td class='n'>136</td><td> </td></tr>
+<tr><td class='n'>137</td><td>.timeline { list-style: none; padding: 0; margin: 0; border-left: 3px solid var(--border); }</td></tr>
+<tr><td class='n'>138</td><td>.timeline li { padding: 0 0 14px 16px; position: relative; }</td></tr>
+<tr><td class='n'>139</td><td>.timeline li::before {</td></tr>
+<tr><td class='n'>140</td><td>  content: &quot;&quot;; position: absolute; left: -8px; top: 5px;</td></tr>
+<tr><td class='n'>141</td><td>  width: 13px; height: 13px; border-radius: 50%; background: var(--green);</td></tr>
+<tr><td class='n'>142</td><td>}</td></tr>
+<tr><td class='n'>143</td><td>.timeline small { color: var(--muted); display: block; }</td></tr>
+<tr><td class='n'>144</td><td> </td></tr>
+<tr><td class='n'>145</td><td>/* ---------- Admin table ---------- */</td></tr>
+<tr><td class='n'>146</td><td>.toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }</td></tr>
+<tr><td class='n'>147</td><td>.toolbar &gt; * { flex: 1 1 160px; }</td></tr>
+<tr><td class='n'>148</td><td>.table-wrap { overflow-x: auto; }</td></tr>
+<tr><td class='n'>149</td><td>table { width: 100%; border-collapse: collapse; background: #fff; }</td></tr>
+<tr><td class='n'>150</td><td>th, td { padding: 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; font-size: .92rem; }</td></tr>
+<tr><td class='n'>151</td><td>th { background: #eef3f0; }</td></tr>
+<tr><td class='n'>152</td><td>.stat { font-size: 1.8rem; font-weight: 700; color: var(--green); }</td></tr>
+<tr><td class='n'>153</td><td> </td></tr>
+<tr><td class='n'>154</td><td>footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 20px 16px; }</td></tr>
+</table>
+<h2>app/js/store.js (160 lines)</h2><table>
+<tr><td class='n'>1</td><td>/*</td></tr>
+<tr><td class='n'>2</td><td> * IRO – Issues Reporting Outlet</td></tr>
+<tr><td class='n'>3</td><td> * store.js : data layer (IssueStore object).</td></tr>
+<tr><td class='n'>4</td><td> *</td></tr>
+<tr><td class='n'>5</td><td> * The mini version keeps all reports in the browser&#x27;s localStorage so the</td></tr>
+<tr><td class='n'>6</td><td> * app runs with no server. Every other script talks to data ONLY through</td></tr>
+<tr><td class='n'>7</td><td> * IssueStore, so swapping localStorage for a real backend API later only</td></tr>
+<tr><td class='n'>8</td><td> * means rewriting this file.</td></tr>
+<tr><td class='n'>9</td><td> */</td></tr>
+<tr><td class='n'>10</td><td> </td></tr>
+<tr><td class='n'>11</td><td>const IRO = {</td></tr>
+<tr><td class='n'>12</td><td>  STORAGE_KEY: &quot;iro_issues&quot;,</td></tr>
+<tr><td class='n'>13</td><td>  ADMIN_PASSCODE: &quot;iro2026&quot;, // demo only – a real deployment authenticates on a server</td></tr>
+<tr><td class='n'>14</td><td> </td></tr>
+<tr><td class='n'>15</td><td>  CATEGORIES: [</td></tr>
+<tr><td class='n'>16</td><td>    &quot;Security / Safety&quot;,</td></tr>
+<tr><td class='n'>17</td><td>    &quot;Accommodation &amp; Rent&quot;,</td></tr>
+<tr><td class='n'>18</td><td>    &quot;Land &amp; Property&quot;,</td></tr>
+<tr><td class='n'>19</td><td>    &quot;Harassment / Assault&quot;,</td></tr>
+<tr><td class='n'>20</td><td>    &quot;Cultural &amp; Festival Conflicts&quot;,</td></tr>
+<tr><td class='n'>21</td><td>    &quot;Sanitation &amp; Environment&quot;,</td></tr>
+<tr><td class='n'>22</td><td>    &quot;Water, Power &amp; Utilities&quot;,</td></tr>
+<tr><td class='n'>23</td><td>    &quot;Transport &amp; Okada&quot;,</td></tr>
+<tr><td class='n'>24</td><td>    &quot;Market &amp; Pricing&quot;,</td></tr>
+<tr><td class='n'>25</td><td>    &quot;Other&quot;</td></tr>
+<tr><td class='n'>26</td><td>  ],</td></tr>
+<tr><td class='n'>27</td><td> </td></tr>
+<tr><td class='n'>28</td><td>  COMMUNITIES: [&quot;Akungba&quot;, &quot;Iwaro&quot;, &quot;Etioro&quot;, &quot;Ayegunle&quot;, &quot;Oke-Oka&quot;, &quot;Other&quot;],</td></tr>
+<tr><td class='n'>29</td><td> </td></tr>
+<tr><td class='n'>30</td><td>  STATUSES: [&quot;Submitted&quot;, &quot;Under Review&quot;, &quot;Escalated&quot;, &quot;Resolved&quot;, &quot;Closed&quot;],</td></tr>
+<tr><td class='n'>31</td><td> </td></tr>
+<tr><td class='n'>32</td><td>  SEVERITIES: [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Emergency&quot;]</td></tr>
+<tr><td class='n'>33</td><td>};</td></tr>
+<tr><td class='n'>34</td><td> </td></tr>
+<tr><td class='n'>35</td><td>const IssueStore = {</td></tr>
+<tr><td class='n'>36</td><td>  /** Return every saved issue (newest first). */</td></tr>
+<tr><td class='n'>37</td><td>  getAll() {</td></tr>
+<tr><td class='n'>38</td><td>    try {</td></tr>
+<tr><td class='n'>39</td><td>      const raw = localStorage.getItem(IRO.STORAGE_KEY);</td></tr>
+<tr><td class='n'>40</td><td>      const list = raw ? JSON.parse(raw) : [];</td></tr>
+<tr><td class='n'>41</td><td>      return list.sort((a, b) =&gt; b.createdAt.localeCompare(a.createdAt));</td></tr>
+<tr><td class='n'>42</td><td>    } catch (e) {</td></tr>
+<tr><td class='n'>43</td><td>      return [];</td></tr>
+<tr><td class='n'>44</td><td>    }</td></tr>
+<tr><td class='n'>45</td><td>  },</td></tr>
+<tr><td class='n'>46</td><td> </td></tr>
+<tr><td class='n'>47</td><td>  /** Persist the full list. */</td></tr>
+<tr><td class='n'>48</td><td>  saveAll(list) {</td></tr>
+<tr><td class='n'>49</td><td>    localStorage.setItem(IRO.STORAGE_KEY, JSON.stringify(list));</td></tr>
+<tr><td class='n'>50</td><td>  },</td></tr>
+<tr><td class='n'>51</td><td> </td></tr>
+<tr><td class='n'>52</td><td>  /** Create a unique, human-friendly ticket ID such as IRO-26-4F7K2. */</td></tr>
+<tr><td class='n'>53</td><td>  generateId() {</td></tr>
+<tr><td class='n'>54</td><td>    const chars = &quot;ABCDEFGHJKLMNPQRSTUVWXYZ23456789&quot;; // no 0/O/1/I to avoid confusion</td></tr>
+<tr><td class='n'>55</td><td>    const year = String(new Date().getFullYear()).slice(-2);</td></tr>
+<tr><td class='n'>56</td><td>    let id;</td></tr>
+<tr><td class='n'>57</td><td>    do {</td></tr>
+<tr><td class='n'>58</td><td>      let code = &quot;&quot;;</td></tr>
+<tr><td class='n'>59</td><td>      for (let i = 0; i &lt; 5; i++) code += chars[Math.floor(Math.random() * chars.length)];</td></tr>
+<tr><td class='n'>60</td><td>      id = `IRO-${year}-${code}`;</td></tr>
+<tr><td class='n'>61</td><td>    } while (this.findById(id));</td></tr>
+<tr><td class='n'>62</td><td>    return id;</td></tr>
+<tr><td class='n'>63</td><td>  },</td></tr>
+<tr><td class='n'>64</td><td> </td></tr>
+<tr><td class='n'>65</td><td>  /** Add a new issue and return it. */</td></tr>
+<tr><td class='n'>66</td><td>  create(data) {</td></tr>
+<tr><td class='n'>67</td><td>    const now = new Date().toISOString();</td></tr>
+<tr><td class='n'>68</td><td>    const issue = {</td></tr>
+<tr><td class='n'>69</td><td>      id: this.generateId(),</td></tr>
+<tr><td class='n'>70</td><td>      reporterType: data.reporterType,          // &quot;Student&quot; | &quot;Indigene&quot; | &quot;Other&quot;</td></tr>
+<tr><td class='n'>71</td><td>      anonymous: !!data.anonymous,</td></tr>
+<tr><td class='n'>72</td><td>      name: data.anonymous ? &quot;&quot; : data.name.trim(),</td></tr>
+<tr><td class='n'>73</td><td>      contact: data.anonymous ? &quot;&quot; : data.contact.trim(),</td></tr>
+<tr><td class='n'>74</td><td>      matricNo: data.matricNo ? data.matricNo.trim() : &quot;&quot;,</td></tr>
+<tr><td class='n'>75</td><td>      community: data.community || &quot;&quot;,</td></tr>
+<tr><td class='n'>76</td><td>      category: data.category,</td></tr>
+<tr><td class='n'>77</td><td>      severity: data.severity,</td></tr>
+<tr><td class='n'>78</td><td>      location: data.location.trim(),</td></tr>
+<tr><td class='n'>79</td><td>      incidentDate: data.incidentDate,</td></tr>
+<tr><td class='n'>80</td><td>      title: data.title.trim(),</td></tr>
+<tr><td class='n'>81</td><td>      description: data.description.trim(),</td></tr>
+<tr><td class='n'>82</td><td>      status: &quot;Submitted&quot;,</td></tr>
+<tr><td class='n'>83</td><td>      createdAt: now,</td></tr>
+<tr><td class='n'>84</td><td>      history: [{ status: &quot;Submitted&quot;, note: &quot;Report received by IRO.&quot;, at: now }]</td></tr>
+<tr><td class='n'>85</td><td>    };</td></tr>
+<tr><td class='n'>86</td><td>    const list = this.getAll();</td></tr>
+<tr><td class='n'>87</td><td>    list.push(issue);</td></tr>
+<tr><td class='n'>88</td><td>    this.saveAll(list);</td></tr>
+<tr><td class='n'>89</td><td>    return issue;</td></tr>
+<tr><td class='n'>90</td><td>  },</td></tr>
+<tr><td class='n'>91</td><td> </td></tr>
+<tr><td class='n'>92</td><td>  /** Find one issue by its ticket ID (case-insensitive). */</td></tr>
+<tr><td class='n'>93</td><td>  findById(id) {</td></tr>
+<tr><td class='n'>94</td><td>    if (!id) return null;</td></tr>
+<tr><td class='n'>95</td><td>    const key = id.trim().toUpperCase();</td></tr>
+<tr><td class='n'>96</td><td>    return this.getAll().find(i =&gt; i.id === key) || null;</td></tr>
+<tr><td class='n'>97</td><td>  },</td></tr>
+<tr><td class='n'>98</td><td> </td></tr>
+<tr><td class='n'>99</td><td>  /** Change an issue&#x27;s status and log the change in its history. */</td></tr>
+<tr><td class='n'>100</td><td>  updateStatus(id, status, note) {</td></tr>
+<tr><td class='n'>101</td><td>    const list = this.getAll();</td></tr>
+<tr><td class='n'>102</td><td>    const issue = list.find(i =&gt; i.id === id);</td></tr>
+<tr><td class='n'>103</td><td>    if (!issue) return null;</td></tr>
+<tr><td class='n'>104</td><td>    issue.status = status;</td></tr>
+<tr><td class='n'>105</td><td>    issue.history.push({ status, note: note || &quot;&quot;, at: new Date().toISOString() });</td></tr>
+<tr><td class='n'>106</td><td>    this.saveAll(list);</td></tr>
+<tr><td class='n'>107</td><td>    return issue;</td></tr>
+<tr><td class='n'>108</td><td>  },</td></tr>
+<tr><td class='n'>109</td><td> </td></tr>
+<tr><td class='n'>110</td><td>  /** Remove an issue permanently (admin only). */</td></tr>
+<tr><td class='n'>111</td><td>  remove(id) {</td></tr>
+<tr><td class='n'>112</td><td>    this.saveAll(this.getAll().filter(i =&gt; i.id !== id));</td></tr>
+<tr><td class='n'>113</td><td>  },</td></tr>
+<tr><td class='n'>114</td><td> </td></tr>
+<tr><td class='n'>115</td><td>  /** Counts used by the admin dashboard. */</td></tr>
+<tr><td class='n'>116</td><td>  stats() {</td></tr>
+<tr><td class='n'>117</td><td>    const list = this.getAll();</td></tr>
+<tr><td class='n'>118</td><td>    const byStatus = {};</td></tr>
+<tr><td class='n'>119</td><td>    IRO.STATUSES.forEach(s =&gt; (byStatus[s] = 0));</td></tr>
+<tr><td class='n'>120</td><td>    list.forEach(i =&gt; byStatus[i.status]++);</td></tr>
+<tr><td class='n'>121</td><td>    return {</td></tr>
+<tr><td class='n'>122</td><td>      total: list.length,</td></tr>
+<tr><td class='n'>123</td><td>      open: list.length - byStatus[&quot;Resolved&quot;] - byStatus[&quot;Closed&quot;],</td></tr>
+<tr><td class='n'>124</td><td>      emergency: list.filter(i =&gt; i.severity === &quot;Emergency&quot; &amp;&amp; i.status !== &quot;Closed&quot;).length,</td></tr>
+<tr><td class='n'>125</td><td>      byStatus</td></tr>
+<tr><td class='n'>126</td><td>    };</td></tr>
+<tr><td class='n'>127</td><td>  }</td></tr>
+<tr><td class='n'>128</td><td>};</td></tr>
+<tr><td class='n'>129</td><td> </td></tr>
+<tr><td class='n'>130</td><td>/* ---------- Small helpers shared by every page ---------- */</td></tr>
+<tr><td class='n'>131</td><td> </td></tr>
+<tr><td class='n'>132</td><td>/** Escape text before inserting it into HTML (prevents script injection). */</td></tr>
+<tr><td class='n'>133</td><td>function escapeHtml(str) {</td></tr>
+<tr><td class='n'>134</td><td>  return String(str).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g, c =&gt; ({</td></tr>
+<tr><td class='n'>135</td><td>    &quot;&amp;&quot;: &quot;&amp;amp;&quot;, &quot;&lt;&quot;: &quot;&amp;lt;&quot;, &quot;&gt;&quot;: &quot;&amp;gt;&quot;, &#x27;&quot;&#x27;: &quot;&amp;quot;&quot;, &quot;&#x27;&quot;: &quot;&amp;#39;&quot;</td></tr>
+<tr><td class='n'>136</td><td>  })[c]);</td></tr>
+<tr><td class='n'>137</td><td>}</td></tr>
+<tr><td class='n'>138</td><td> </td></tr>
+<tr><td class='n'>139</td><td>/** Format an ISO date for display, e.g. 7 Jul 2026, 14:05. */</td></tr>
+<tr><td class='n'>140</td><td>function formatDate(iso) {</td></tr>
+<tr><td class='n'>141</td><td>  return new Date(iso).toLocaleString(&quot;en-GB&quot;, {</td></tr>
+<tr><td class='n'>142</td><td>    day: &quot;numeric&quot;, month: &quot;short&quot;, year: &quot;numeric&quot;, hour: &quot;2-digit&quot;, minute: &quot;2-digit&quot;</td></tr>
+<tr><td class='n'>143</td><td>  });</td></tr>
+<tr><td class='n'>144</td><td>}</td></tr>
+<tr><td class='n'>145</td><td> </td></tr>
+<tr><td class='n'>146</td><td>/** Status badge markup; CSS class uses a hyphen in place of spaces. */</td></tr>
+<tr><td class='n'>147</td><td>function statusBadge(status) {</td></tr>
+<tr><td class='n'>148</td><td>  return `&lt;span class=&quot;badge ${status.replace(/\s/g, &quot;-&quot;)}&quot;&gt;${escapeHtml(status)}&lt;/span&gt;`;</td></tr>
+<tr><td class='n'>149</td><td>}</td></tr>
+<tr><td class='n'>150</td><td> </td></tr>
+<tr><td class='n'>151</td><td>/** Fill a &lt;select&gt; element with a list of options. */</td></tr>
+<tr><td class='n'>152</td><td>function fillSelect(select, items, placeholder) {</td></tr>
+<tr><td class='n'>153</td><td>  select.innerHTML = placeholder ? `&lt;option value=&quot;&quot;&gt;${placeholder}&lt;/option&gt;` : &quot;&quot;;</td></tr>
+<tr><td class='n'>154</td><td>  items.forEach(item =&gt; {</td></tr>
+<tr><td class='n'>155</td><td>    const opt = document.createElement(&quot;option&quot;);</td></tr>
+<tr><td class='n'>156</td><td>    opt.value = item;</td></tr>
+<tr><td class='n'>157</td><td>    opt.textContent = item;</td></tr>
+<tr><td class='n'>158</td><td>    select.appendChild(opt);</td></tr>
+<tr><td class='n'>159</td><td>  });</td></tr>
+<tr><td class='n'>160</td><td>}</td></tr>
+</table>
+<h2>app/js/report.js (81 lines)</h2><table>
+<tr><td class='n'>1</td><td>/*</td></tr>
+<tr><td class='n'>2</td><td> * IRO – report.js : ReportForm object (controls report.html).</td></tr>
+<tr><td class='n'>3</td><td> */</td></tr>
+<tr><td class='n'>4</td><td> </td></tr>
+<tr><td class='n'>5</td><td>const ReportForm = {</td></tr>
+<tr><td class='n'>6</td><td>  form: document.getElementById(&quot;reportForm&quot;),</td></tr>
+<tr><td class='n'>7</td><td>  el: id =&gt; document.getElementById(id),</td></tr>
+<tr><td class='n'>8</td><td> </td></tr>
+<tr><td class='n'>9</td><td>  init() {</td></tr>
+<tr><td class='n'>10</td><td>    fillSelect(this.el(&quot;category&quot;), IRO.CATEGORIES, &quot;-- Select category --&quot;);</td></tr>
+<tr><td class='n'>11</td><td>    fillSelect(this.el(&quot;severity&quot;), IRO.SEVERITIES, &quot;-- Select severity --&quot;);</td></tr>
+<tr><td class='n'>12</td><td>    fillSelect(this.el(&quot;community&quot;), IRO.COMMUNITIES, &quot;-- Select community --&quot;);</td></tr>
+<tr><td class='n'>13</td><td>    this.el(&quot;incidentDate&quot;).max = new Date().toISOString().slice(0, 10);</td></tr>
+<tr><td class='n'>14</td><td> </td></tr>
+<tr><td class='n'>15</td><td>    this.el(&quot;reporterType&quot;).addEventListener(&quot;change&quot;, () =&gt; this.toggleReporterFields());</td></tr>
+<tr><td class='n'>16</td><td>    this.el(&quot;anonymous&quot;).addEventListener(&quot;change&quot;, () =&gt; this.toggleIdentity());</td></tr>
+<tr><td class='n'>17</td><td>    this.form.addEventListener(&quot;submit&quot;, e =&gt; this.submit(e));</td></tr>
+<tr><td class='n'>18</td><td>  },</td></tr>
+<tr><td class='n'>19</td><td> </td></tr>
+<tr><td class='n'>20</td><td>  /** Students may give a matric number; indigenes pick their community. */</td></tr>
+<tr><td class='n'>21</td><td>  toggleReporterFields() {</td></tr>
+<tr><td class='n'>22</td><td>    const type = this.el(&quot;reporterType&quot;).value;</td></tr>
+<tr><td class='n'>23</td><td>    this.el(&quot;matricGroup&quot;).classList.toggle(&quot;hidden&quot;, type !== &quot;Student&quot;);</td></tr>
+<tr><td class='n'>24</td><td>    this.el(&quot;communityGroup&quot;).classList.toggle(&quot;hidden&quot;, type !== &quot;Indigene&quot;);</td></tr>
+<tr><td class='n'>25</td><td>  },</td></tr>
+<tr><td class='n'>26</td><td> </td></tr>
+<tr><td class='n'>27</td><td>  toggleIdentity() {</td></tr>
+<tr><td class='n'>28</td><td>    this.el(&quot;identityGroup&quot;).classList.toggle(&quot;hidden&quot;, this.el(&quot;anonymous&quot;).checked);</td></tr>
+<tr><td class='n'>29</td><td>  },</td></tr>
+<tr><td class='n'>30</td><td> </td></tr>
+<tr><td class='n'>31</td><td>  /** Read all fields into a plain object. */</td></tr>
+<tr><td class='n'>32</td><td>  collect() {</td></tr>
+<tr><td class='n'>33</td><td>    return {</td></tr>
+<tr><td class='n'>34</td><td>      reporterType: this.el(&quot;reporterType&quot;).value,</td></tr>
+<tr><td class='n'>35</td><td>      matricNo: this.el(&quot;matricNo&quot;).value,</td></tr>
+<tr><td class='n'>36</td><td>      community: this.el(&quot;community&quot;).value,</td></tr>
+<tr><td class='n'>37</td><td>      anonymous: this.el(&quot;anonymous&quot;).checked,</td></tr>
+<tr><td class='n'>38</td><td>      name: this.el(&quot;name&quot;).value,</td></tr>
+<tr><td class='n'>39</td><td>      contact: this.el(&quot;contact&quot;).value,</td></tr>
+<tr><td class='n'>40</td><td>      category: this.el(&quot;category&quot;).value,</td></tr>
+<tr><td class='n'>41</td><td>      severity: this.el(&quot;severity&quot;).value,</td></tr>
+<tr><td class='n'>42</td><td>      location: this.el(&quot;location&quot;).value,</td></tr>
+<tr><td class='n'>43</td><td>      incidentDate: this.el(&quot;incidentDate&quot;).value,</td></tr>
+<tr><td class='n'>44</td><td>      title: this.el(&quot;title&quot;).value,</td></tr>
+<tr><td class='n'>45</td><td>      description: this.el(&quot;description&quot;).value</td></tr>
+<tr><td class='n'>46</td><td>    };</td></tr>
+<tr><td class='n'>47</td><td>  },</td></tr>
+<tr><td class='n'>48</td><td> </td></tr>
+<tr><td class='n'>49</td><td>  /** Return an error message, or &quot;&quot; when the data is valid. */</td></tr>
+<tr><td class='n'>50</td><td>  validate(d) {</td></tr>
+<tr><td class='n'>51</td><td>    if (!d.reporterType) return &quot;Please tell us whether you are a student or an indigene.&quot;;</td></tr>
+<tr><td class='n'>52</td><td>    if (d.reporterType === &quot;Indigene&quot; &amp;&amp; !d.community) return &quot;Please select your community.&quot;;</td></tr>
+<tr><td class='n'>53</td><td>    if (!d.category) return &quot;Please choose a category.&quot;;</td></tr>
+<tr><td class='n'>54</td><td>    if (!d.severity) return &quot;Please choose a severity.&quot;;</td></tr>
+<tr><td class='n'>55</td><td>    if (!d.location.trim()) return &quot;Please enter where the issue happened.&quot;;</td></tr>
+<tr><td class='n'>56</td><td>    if (!d.incidentDate) return &quot;Please enter the date of the incident.&quot;;</td></tr>
+<tr><td class='n'>57</td><td>    if (d.incidentDate &gt; new Date().toISOString().slice(0, 10)) return &quot;The incident date cannot be in the future.&quot;;</td></tr>
+<tr><td class='n'>58</td><td>    if (d.title.trim().length &lt; 5) return &quot;Please give a short title (at least 5 characters).&quot;;</td></tr>
+<tr><td class='n'>59</td><td>    if (d.description.trim().length &lt; 20) return &quot;Please describe the issue in at least 20 characters.&quot;;</td></tr>
+<tr><td class='n'>60</td><td>    if (!d.anonymous &amp;&amp; d.contact.trim() &amp;&amp; !/^(\+?\d{10,14}|[^@\s]+@[^@\s]+\.[^@\s]+)$/.test(d.contact.trim()))</td></tr>
+<tr><td class='n'>61</td><td>      return &quot;Contact must be a valid phone number or email address.&quot;;</td></tr>
+<tr><td class='n'>62</td><td>    return &quot;&quot;;</td></tr>
+<tr><td class='n'>63</td><td>  },</td></tr>
+<tr><td class='n'>64</td><td> </td></tr>
+<tr><td class='n'>65</td><td>  submit(e) {</td></tr>
+<tr><td class='n'>66</td><td>    e.preventDefault();</td></tr>
+<tr><td class='n'>67</td><td>    const data = this.collect();</td></tr>
+<tr><td class='n'>68</td><td>    const error = this.validate(data);</td></tr>
+<tr><td class='n'>69</td><td>    this.el(&quot;formError&quot;).textContent = error;</td></tr>
+<tr><td class='n'>70</td><td>    if (error) return;</td></tr>
+<tr><td class='n'>71</td><td> </td></tr>
+<tr><td class='n'>72</td><td>    const issue = IssueStore.create(data);</td></tr>
+<tr><td class='n'>73</td><td>    this.el(&quot;ticketId&quot;).textContent = issue.id;</td></tr>
+<tr><td class='n'>74</td><td>    this.el(&quot;trackLink&quot;).href = &quot;track.html?id=&quot; + encodeURIComponent(issue.id);</td></tr>
+<tr><td class='n'>75</td><td>    this.el(&quot;formCard&quot;).classList.add(&quot;hidden&quot;);</td></tr>
+<tr><td class='n'>76</td><td>    this.el(&quot;successCard&quot;).classList.remove(&quot;hidden&quot;);</td></tr>
+<tr><td class='n'>77</td><td>    window.scrollTo(0, 0);</td></tr>
+<tr><td class='n'>78</td><td>  }</td></tr>
+<tr><td class='n'>79</td><td>};</td></tr>
+<tr><td class='n'>80</td><td> </td></tr>
+<tr><td class='n'>81</td><td>ReportForm.init();</td></tr>
+</table>
+<h2>app/js/track.js (42 lines)</h2><table>
+<tr><td class='n'>1</td><td>/*</td></tr>
+<tr><td class='n'>2</td><td> * IRO – track.js : Tracker object (controls track.html).</td></tr>
+<tr><td class='n'>3</td><td> * Shows only non-identifying details so a leaked ticket ID reveals nothing personal.</td></tr>
+<tr><td class='n'>4</td><td> */</td></tr>
+<tr><td class='n'>5</td><td> </td></tr>
+<tr><td class='n'>6</td><td>const Tracker = {</td></tr>
+<tr><td class='n'>7</td><td>  el: id =&gt; document.getElementById(id),</td></tr>
+<tr><td class='n'>8</td><td> </td></tr>
+<tr><td class='n'>9</td><td>  init() {</td></tr>
+<tr><td class='n'>10</td><td>    this.el(&quot;trackForm&quot;).addEventListener(&quot;submit&quot;, e =&gt; {</td></tr>
+<tr><td class='n'>11</td><td>      e.preventDefault();</td></tr>
+<tr><td class='n'>12</td><td>      this.show(this.el(&quot;ticketInput&quot;).value);</td></tr>
+<tr><td class='n'>13</td><td>    });</td></tr>
+<tr><td class='n'>14</td><td> </td></tr>
+<tr><td class='n'>15</td><td>    // Allow links such as track.html?id=IRO-26-4F7K2</td></tr>
+<tr><td class='n'>16</td><td>    const id = new URLSearchParams(location.search).get(&quot;id&quot;);</td></tr>
+<tr><td class='n'>17</td><td>    if (id) {</td></tr>
+<tr><td class='n'>18</td><td>      this.el(&quot;ticketInput&quot;).value = id;</td></tr>
+<tr><td class='n'>19</td><td>      this.show(id);</td></tr>
+<tr><td class='n'>20</td><td>    }</td></tr>
+<tr><td class='n'>21</td><td>  },</td></tr>
+<tr><td class='n'>22</td><td> </td></tr>
+<tr><td class='n'>23</td><td>  show(id) {</td></tr>
+<tr><td class='n'>24</td><td>    const issue = IssueStore.findById(id);</td></tr>
+<tr><td class='n'>25</td><td>    this.el(&quot;resultCard&quot;).classList.toggle(&quot;hidden&quot;, !issue);</td></tr>
+<tr><td class='n'>26</td><td>    this.el(&quot;trackError&quot;).textContent = issue ? &quot;&quot; : &quot;No report found with that ticket ID. Check it and try again.&quot;;</td></tr>
+<tr><td class='n'>27</td><td>    if (!issue) return;</td></tr>
+<tr><td class='n'>28</td><td> </td></tr>
+<tr><td class='n'>29</td><td>    this.el(&quot;resTitle&quot;).textContent = issue.title;</td></tr>
+<tr><td class='n'>30</td><td>    this.el(&quot;resMeta&quot;).textContent =</td></tr>
+<tr><td class='n'>31</td><td>      `${issue.id} · ${issue.category} · ${issue.severity} severity · reported ${formatDate(issue.createdAt)}`;</td></tr>
+<tr><td class='n'>32</td><td>    this.el(&quot;resStatus&quot;).innerHTML = statusBadge(issue.status);</td></tr>
+<tr><td class='n'>33</td><td>    this.el(&quot;resHistory&quot;).innerHTML = issue.history.map(h =&gt; `</td></tr>
+<tr><td class='n'>34</td><td>      &lt;li&gt;</td></tr>
+<tr><td class='n'>35</td><td>        ${statusBadge(h.status)}</td></tr>
+<tr><td class='n'>36</td><td>        &lt;small&gt;${formatDate(h.at)}&lt;/small&gt;</td></tr>
+<tr><td class='n'>37</td><td>        ${h.note ? `&lt;div&gt;${escapeHtml(h.note)}&lt;/div&gt;` : &quot;&quot;}</td></tr>
+<tr><td class='n'>38</td><td>      &lt;/li&gt;`).join(&quot;&quot;);</td></tr>
+<tr><td class='n'>39</td><td>  }</td></tr>
+<tr><td class='n'>40</td><td>};</td></tr>
+<tr><td class='n'>41</td><td> </td></tr>
+<tr><td class='n'>42</td><td>Tracker.init();</td></tr>
+</table>
+<h2>app/js/admin.js (122 lines)</h2><table>
+<tr><td class='n'>1</td><td>/*</td></tr>
+<tr><td class='n'>2</td><td> * IRO – admin.js : AdminDesk object (controls admin.html).</td></tr>
+<tr><td class='n'>3</td><td> * Lets the IRO desk officer view, filter and update reports.</td></tr>
+<tr><td class='n'>4</td><td> */</td></tr>
+<tr><td class='n'>5</td><td> </td></tr>
+<tr><td class='n'>6</td><td>const AdminDesk = {</td></tr>
+<tr><td class='n'>7</td><td>  SESSION_KEY: &quot;iro_admin&quot;,</td></tr>
+<tr><td class='n'>8</td><td>  selectedId: null,</td></tr>
+<tr><td class='n'>9</td><td>  el: id =&gt; document.getElementById(id),</td></tr>
+<tr><td class='n'>10</td><td> </td></tr>
+<tr><td class='n'>11</td><td>  init() {</td></tr>
+<tr><td class='n'>12</td><td>    fillSelect(this.el(&quot;filterStatus&quot;), IRO.STATUSES, &quot;All statuses&quot;);</td></tr>
+<tr><td class='n'>13</td><td>    fillSelect(this.el(&quot;filterCategory&quot;), IRO.CATEGORIES, &quot;All categories&quot;);</td></tr>
+<tr><td class='n'>14</td><td>    fillSelect(this.el(&quot;newStatus&quot;), IRO.STATUSES);</td></tr>
+<tr><td class='n'>15</td><td> </td></tr>
+<tr><td class='n'>16</td><td>    this.el(&quot;loginForm&quot;).addEventListener(&quot;submit&quot;, e =&gt; this.login(e));</td></tr>
+<tr><td class='n'>17</td><td>    this.el(&quot;logoutBtn&quot;).addEventListener(&quot;click&quot;, () =&gt; this.logout());</td></tr>
+<tr><td class='n'>18</td><td>    [&quot;search&quot;, &quot;filterStatus&quot;, &quot;filterCategory&quot;, &quot;filterReporter&quot;].forEach(id =&gt;</td></tr>
+<tr><td class='n'>19</td><td>      this.el(id).addEventListener(&quot;input&quot;, () =&gt; this.render()));</td></tr>
+<tr><td class='n'>20</td><td>    this.el(&quot;issueRows&quot;).addEventListener(&quot;click&quot;, e =&gt; {</td></tr>
+<tr><td class='n'>21</td><td>      const btn = e.target.closest(&quot;button[data-id]&quot;);</td></tr>
+<tr><td class='n'>22</td><td>      if (btn) this.openDetail(btn.dataset.id);</td></tr>
+<tr><td class='n'>23</td><td>    });</td></tr>
+<tr><td class='n'>24</td><td>    this.el(&quot;updateForm&quot;).addEventListener(&quot;submit&quot;, e =&gt; this.saveUpdate(e));</td></tr>
+<tr><td class='n'>25</td><td>    this.el(&quot;deleteBtn&quot;).addEventListener(&quot;click&quot;, () =&gt; this.deleteSelected());</td></tr>
+<tr><td class='n'>26</td><td> </td></tr>
+<tr><td class='n'>27</td><td>    if (sessionStorage.getItem(this.SESSION_KEY) === &quot;1&quot;) this.showDashboard();</td></tr>
+<tr><td class='n'>28</td><td>  },</td></tr>
+<tr><td class='n'>29</td><td> </td></tr>
+<tr><td class='n'>30</td><td>  login(e) {</td></tr>
+<tr><td class='n'>31</td><td>    e.preventDefault();</td></tr>
+<tr><td class='n'>32</td><td>    if (this.el(&quot;passcode&quot;).value === IRO.ADMIN_PASSCODE) {</td></tr>
+<tr><td class='n'>33</td><td>      sessionStorage.setItem(this.SESSION_KEY, &quot;1&quot;);</td></tr>
+<tr><td class='n'>34</td><td>      this.showDashboard();</td></tr>
+<tr><td class='n'>35</td><td>    } else {</td></tr>
+<tr><td class='n'>36</td><td>      this.el(&quot;loginError&quot;).textContent = &quot;Incorrect passcode.&quot;;</td></tr>
+<tr><td class='n'>37</td><td>    }</td></tr>
+<tr><td class='n'>38</td><td>  },</td></tr>
+<tr><td class='n'>39</td><td> </td></tr>
+<tr><td class='n'>40</td><td>  logout() {</td></tr>
+<tr><td class='n'>41</td><td>    sessionStorage.removeItem(this.SESSION_KEY);</td></tr>
+<tr><td class='n'>42</td><td>    location.reload();</td></tr>
+<tr><td class='n'>43</td><td>  },</td></tr>
+<tr><td class='n'>44</td><td> </td></tr>
+<tr><td class='n'>45</td><td>  showDashboard() {</td></tr>
+<tr><td class='n'>46</td><td>    this.el(&quot;loginCard&quot;).classList.add(&quot;hidden&quot;);</td></tr>
+<tr><td class='n'>47</td><td>    this.el(&quot;dashboard&quot;).classList.remove(&quot;hidden&quot;);</td></tr>
+<tr><td class='n'>48</td><td>    this.render();</td></tr>
+<tr><td class='n'>49</td><td>  },</td></tr>
+<tr><td class='n'>50</td><td> </td></tr>
+<tr><td class='n'>51</td><td>  /** Issues that match the search box and the three filters. */</td></tr>
+<tr><td class='n'>52</td><td>  filtered() {</td></tr>
+<tr><td class='n'>53</td><td>    const q = this.el(&quot;search&quot;).value.trim().toLowerCase();</td></tr>
+<tr><td class='n'>54</td><td>    const st = this.el(&quot;filterStatus&quot;).value;</td></tr>
+<tr><td class='n'>55</td><td>    const cat = this.el(&quot;filterCategory&quot;).value;</td></tr>
+<tr><td class='n'>56</td><td>    const rep = this.el(&quot;filterReporter&quot;).value;</td></tr>
+<tr><td class='n'>57</td><td>    return IssueStore.getAll().filter(i =&gt;</td></tr>
+<tr><td class='n'>58</td><td>      (!st || i.status === st) &amp;&amp;</td></tr>
+<tr><td class='n'>59</td><td>      (!cat || i.category === cat) &amp;&amp;</td></tr>
+<tr><td class='n'>60</td><td>      (!rep || i.reporterType === rep) &amp;&amp;</td></tr>
+<tr><td class='n'>61</td><td>      (!q || [i.id, i.title, i.location].some(f =&gt; f.toLowerCase().includes(q))));</td></tr>
+<tr><td class='n'>62</td><td>  },</td></tr>
+<tr><td class='n'>63</td><td> </td></tr>
+<tr><td class='n'>64</td><td>  render() {</td></tr>
+<tr><td class='n'>65</td><td>    const s = IssueStore.stats();</td></tr>
+<tr><td class='n'>66</td><td>    this.el(&quot;statTotal&quot;).textContent = s.total;</td></tr>
+<tr><td class='n'>67</td><td>    this.el(&quot;statOpen&quot;).textContent = s.open;</td></tr>
+<tr><td class='n'>68</td><td>    this.el(&quot;statEmergency&quot;).textContent = s.emergency;</td></tr>
+<tr><td class='n'>69</td><td>    this.el(&quot;statResolved&quot;).textContent = s.byStatus[&quot;Resolved&quot;];</td></tr>
+<tr><td class='n'>70</td><td> </td></tr>
+<tr><td class='n'>71</td><td>    const rows = this.filtered();</td></tr>
+<tr><td class='n'>72</td><td>    this.el(&quot;emptyMsg&quot;).classList.toggle(&quot;hidden&quot;, rows.length &gt; 0);</td></tr>
+<tr><td class='n'>73</td><td>    this.el(&quot;issueRows&quot;).innerHTML = rows.map(i =&gt; `</td></tr>
+<tr><td class='n'>74</td><td>      &lt;tr&gt;</td></tr>
+<tr><td class='n'>75</td><td>        &lt;td&gt;&lt;code&gt;${i.id}&lt;/code&gt;&lt;br&gt;&lt;small&gt;${formatDate(i.createdAt)}&lt;/small&gt;&lt;/td&gt;</td></tr>
+<tr><td class='n'>76</td><td>        &lt;td&gt;&lt;strong&gt;${escapeHtml(i.title)}&lt;/strong&gt;&lt;br&gt;&lt;small&gt;${escapeHtml(i.category)} · ${escapeHtml(i.location)}&lt;/small&gt;&lt;/td&gt;</td></tr>
+<tr><td class='n'>77</td><td>        &lt;td&gt;${i.reporterType}${i.community ? &quot; (&quot; + escapeHtml(i.community) + &quot;)&quot; : &quot;&quot;}&lt;/td&gt;</td></tr>
+<tr><td class='n'>78</td><td>        &lt;td&gt;${i.severity}&lt;/td&gt;</td></tr>
+<tr><td class='n'>79</td><td>        &lt;td&gt;${statusBadge(i.status)}&lt;/td&gt;</td></tr>
+<tr><td class='n'>80</td><td>        &lt;td&gt;&lt;button class=&quot;btn small secondary&quot; data-id=&quot;${i.id}&quot;&gt;Open&lt;/button&gt;&lt;/td&gt;</td></tr>
+<tr><td class='n'>81</td><td>      &lt;/tr&gt;`).join(&quot;&quot;);</td></tr>
+<tr><td class='n'>82</td><td>  },</td></tr>
+<tr><td class='n'>83</td><td> </td></tr>
+<tr><td class='n'>84</td><td>  openDetail(id) {</td></tr>
+<tr><td class='n'>85</td><td>    const i = IssueStore.findById(id);</td></tr>
+<tr><td class='n'>86</td><td>    if (!i) return;</td></tr>
+<tr><td class='n'>87</td><td>    this.selectedId = id;</td></tr>
+<tr><td class='n'>88</td><td>    this.el(&quot;dTitle&quot;).textContent = `${i.id} – ${i.title}`;</td></tr>
+<tr><td class='n'>89</td><td>    this.el(&quot;dMeta&quot;).textContent =</td></tr>
+<tr><td class='n'>90</td><td>      `${i.category} · ${i.severity} · ${i.location} · incident on ${i.incidentDate}`;</td></tr>
+<tr><td class='n'>91</td><td>    this.el(&quot;dReporter&quot;).textContent = i.anonymous</td></tr>
+<tr><td class='n'>92</td><td>      ? `Reporter: Anonymous ${i.reporterType}`</td></tr>
+<tr><td class='n'>93</td><td>      : `Reporter: ${i.name || &quot;(no name)&quot;} · ${i.contact || &quot;(no contact)&quot;} · ${i.reporterType}` +</td></tr>
+<tr><td class='n'>94</td><td>        (i.matricNo ? ` · Matric ${i.matricNo}` : &quot;&quot;) + (i.community ? ` · ${i.community}` : &quot;&quot;);</td></tr>
+<tr><td class='n'>95</td><td>    this.el(&quot;dDesc&quot;).textContent = i.description;</td></tr>
+<tr><td class='n'>96</td><td>    this.el(&quot;dHistory&quot;).innerHTML = i.history.map(h =&gt;</td></tr>
+<tr><td class='n'>97</td><td>      `&lt;li&gt;${statusBadge(h.status)} &lt;small&gt;${formatDate(h.at)}&lt;/small&gt;${h.note ? `&lt;div&gt;${escapeHtml(h.note)}&lt;/div&gt;` : &quot;&quot;}&lt;/li&gt;`</td></tr>
+<tr><td class='n'>98</td><td>    ).join(&quot;&quot;);</td></tr>
+<tr><td class='n'>99</td><td>    this.el(&quot;newStatus&quot;).value = i.status;</td></tr>
+<tr><td class='n'>100</td><td>    this.el(&quot;note&quot;).value = &quot;&quot;;</td></tr>
+<tr><td class='n'>101</td><td>    this.el(&quot;detailCard&quot;).classList.remove(&quot;hidden&quot;);</td></tr>
+<tr><td class='n'>102</td><td>    this.el(&quot;detailCard&quot;).scrollIntoView({ behavior: &quot;smooth&quot; });</td></tr>
+<tr><td class='n'>103</td><td>  },</td></tr>
+<tr><td class='n'>104</td><td> </td></tr>
+<tr><td class='n'>105</td><td>  saveUpdate(e) {</td></tr>
+<tr><td class='n'>106</td><td>    e.preventDefault();</td></tr>
+<tr><td class='n'>107</td><td>    if (!this.selectedId) return;</td></tr>
+<tr><td class='n'>108</td><td>    IssueStore.updateStatus(this.selectedId, this.el(&quot;newStatus&quot;).value, this.el(&quot;note&quot;).value.trim());</td></tr>
+<tr><td class='n'>109</td><td>    this.render();</td></tr>
+<tr><td class='n'>110</td><td>    this.openDetail(this.selectedId);</td></tr>
+<tr><td class='n'>111</td><td>  },</td></tr>
+<tr><td class='n'>112</td><td> </td></tr>
+<tr><td class='n'>113</td><td>  deleteSelected() {</td></tr>
+<tr><td class='n'>114</td><td>    if (!this.selectedId || !confirm(&quot;Delete this report permanently?&quot;)) return;</td></tr>
+<tr><td class='n'>115</td><td>    IssueStore.remove(this.selectedId);</td></tr>
+<tr><td class='n'>116</td><td>    this.selectedId = null;</td></tr>
+<tr><td class='n'>117</td><td>    this.el(&quot;detailCard&quot;).classList.add(&quot;hidden&quot;);</td></tr>
+<tr><td class='n'>118</td><td>    this.render();</td></tr>
+<tr><td class='n'>119</td><td>  }</td></tr>
+<tr><td class='n'>120</td><td>};</td></tr>
+<tr><td class='n'>121</td><td> </td></tr>
+<tr><td class='n'>122</td><td>AdminDesk.init();</td></tr>
+</table>
+</body></html>

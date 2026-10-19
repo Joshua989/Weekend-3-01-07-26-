@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Report – IRO</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html">IR<span>O</span></a>
+      <ul>
+        <li><a class="link" href="index.html">Home</a></li>
+        <li><a class="link" href="report.html">Report an Issue</a></li>
+        <li><a class="link active" href="track.html">Track Report</a></li>
+        <li><a class="link" href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Track a Report</h2>
+      <form id="trackForm" class="toolbar">
+        <input id="ticketInput" placeholder="Enter ticket ID, e.g. IRO-26-4F7K2" required>
+        <button class="btn" type="submit" style="flex:0 0 auto">Track</button>
+      </form>
+      <p id="trackError" class="error"></p>
+    </div>
+
+    <div class="card hidden" id="resultCard" style="margin-top:16px">
+      <h2 id="resTitle"></h2>
+      <p id="resMeta"></p>
+      <p><strong>Current status:</strong> <span id="resStatus"></span></p>
+      <h3>Progress</h3>
+      <ul class="timeline" id="resHistory"></ul>
+    </div>
+  </main>
+
+  <footer>IRO &copy; 2026 · CSC426 Weekly Dev · Adekunle Ajasin University, Akungba-Akoko</footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/track.js"></script>
+</body>
+</html>

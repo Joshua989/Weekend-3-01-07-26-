@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report an Issue – IRO</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html">IR<span>O</span></a>
+      <ul>
+        <li><a class="link" href="index.html">Home</a></li>
+        <li><a class="link active" href="report.html">Report an Issue</a></li>
+        <li><a class="link" href="track.html">Track Report</a></li>
+        <li><a class="link" href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card" id="formCard">
+      <h2>Report an Issue</h2>
+      <p>Fields marked <span class="opt">(optional)</span> can be left blank.</p>
+
+      <form id="reportForm" novalidate>
+        <h3>About you</h3>
+        <div class="row">
+          <div>
+            <label for="reporterType">I am a</label>
+            <select id="reporterType" required>
+              <option value="">-- Select --</option>
+              <option>Student</option>
+              <option>Indigene</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div id="matricGroup" class="hidden">
+            <label for="matricNo">Matric number <span class="opt">(optional)</span></label>
+            <input id="matricNo" placeholder="e.g. 210404012">
+          </div>
+          <div id="communityGroup" class="hidden">
+            <label for="community">Community</label>
+            <select id="community"></select>
+          </div>
+        </div>
+
+        <label class="check"><input type="checkbox" id="anonymous"> Report anonymously (your name and contact will not be stored)</label>
+
+        <div class="row" id="identityGroup">
+          <div>
+            <label for="name">Full name <span class="opt">(optional)</span></label>
+            <input id="name" autocomplete="name">
+          </div>
+          <div>
+            <label for="contact">Phone or email <span class="opt">(optional)</span></label>
+            <input id="contact" autocomplete="email">
+          </div>
+        </div>
+
+        <h3>The issue</h3>
+        <div class="row">
+          <div>
+            <label for="category">Category</label>
+            <select id="category" required></select>
+          </div>
+          <div>
+            <label for="severity">Severity</label>
+            <select id="severity" required></select>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="location">Location</label>
+            <input id="location" required placeholder="e.g. Ibaka junction, Iwaro">
+          </div>
+          <div>
+            <label for="incidentDate">Date of incident</label>
+            <input type="date" id="incidentDate" required>
+          </div>
+        </div>
+        <label for="title">Short title</label>
+        <input id="title" required maxlength="100" placeholder="e.g. Landlord increased rent mid-session">
+        <label for="description">Describe what happened</label>
+        <textarea id="description" required maxlength="2000"></textarea>
+
+        <p id="formError" class="error"></p>
+        <button class="btn" type="submit">Submit Report</button>
+      </form>
+    </div>
+
+    <div class="card hidden" id="successCard">
+      <h2>Report submitted</h2>
+      <p>Thank you. Your report has been received. Save this ticket ID — you need it to track your report:</p>
+      <div class="notice"><span class="ticket" id="ticketId"></span></div>
+      <a class="btn secondary" id="trackLink" href="track.html">Track this report</a>
+      <a class="btn" href="report.html">Report another issue</a>
+    </div>
+  </main>
+
+  <footer>IRO &copy; 2026 · CSC426 Weekly Dev · Adekunle Ajasin University, Akungba-Akoko</footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/report.js"></script>
+</body>
+</html>

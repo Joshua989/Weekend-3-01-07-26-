@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IRO – Software Requirements Specification</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  body { font-family: "Times New Roman", Times, serif; font-size: 10pt; line-height: 1.4; color: #000; max-width: 800px; margin: 0 auto; }
+  h1 { font-size: 16pt; text-align: center; margin: 0 0 4pt; }
+  h2 { font-size: 12pt; margin: 16pt 0 6pt; border-bottom: 1px solid #000; page-break-after: avoid; }
+  h3 { font-size: 10.5pt; margin: 10pt 0 4pt; page-break-after: avoid; }
+  p, li { text-align: justify; }
+  table { border-collapse: collapse; width: 100%; margin: 6pt 0; page-break-inside: auto; }
+  tr { page-break-inside: avoid; }
+  th, td { border: 1px solid #000; padding: 3pt 5pt; vertical-align: top; text-align: left; font-size: 10pt; }
+  th { background: #e6e6e6; }
+  .center { text-align: center; }
+  .cover { text-align: center; margin: 60pt 0 40pt; }
+  .cover p { text-align: center; }
+  figure { text-align: center; margin: 8pt 0; page-break-inside: avoid; }
+  figure img { max-width: 100%; }
+  figcaption { font-style: italic; }
+  .pb { page-break-before: always; }
+  pre { font-family: "Courier New", monospace; font-size: 8pt; border: 1px solid #000; padding: 6pt; white-space: pre; overflow-x: auto; page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>SOFTWARE REQUIREMENTS SPECIFICATION</h1>
+  <p style="font-size:14pt"><b>IRO – Issues Reporting Outlet</b></p>
+  <p>A web-based system for reporting and resolving issues between<br>
+     Adekunle Ajasin University, Akungba-Akoko (AAUA) students and the indigenes of<br>
+     Akungba, Iwaro, Etioro, Ayegunle and neighbouring communities</p>
+  <p>Version 1.0</p>
+  <p>CSC426 Weekly Dev – Weekend 3 (01/07/26)<br>Course lecturer: Dr. O. O. Ajayi</p>
+  <p>Prepared by: Joshua Omolafe (GitHub: Joshua989)</p>
+</div>
+
+<h2>Revision History</h2>
+<table>
+  <tr><th>Version</th><th>Date</th><th>Description</th></tr>
+  <tr><td>1.0</td><td>July 2026</td><td>Initial SRS for the IRO mini web interface.</td></tr>
+</table>
+
+<h2>Table of Contents</h2>
+<ol>
+  <li>Introduction</li>
+  <li>Overall Description</li>
+  <li>System Architecture &amp; Interaction of Major Components</li>
+  <li>Functional Requirements</li>
+  <li>Non-Functional Requirements</li>
+  <li>External Interface Requirements</li>
+  <li>Use-Case Model</li>
+  <li>Data Requirements</li>
+  <li>Problem Analysis (Ishikawa) and Requirements Traceability</li>
+  <li>Appendices</li>
+</ol>
+
+<h2 class="pb">1. Introduction</h2>
+<h3>1.1 Purpose</h3>
+<p>This document specifies the requirements of <b>IRO (Issues Reporting Outlet)</b>, a web-based
+system through which AAUA students and indigenes of the host communities report issues that affect
+them, and through which an IRO desk officer reviews, escalates and resolves those reports. It is
+written for the course lecturer, the project developer, and any future team that extends the system.
+It describes what the system must do (functional requirements), how well it must do it
+(non-functional requirements), and how its major components interact.</p>
+
+<h3>1.2 Scope</h3>
+<p>Relations between AAUA students and the host communities (Akungba, Iwaro, Etioro, Ayegunle and
+Oke-Oka) are affected by disputes over rent and accommodation, security, land, cultural festivals,
+sanitation, transport and prices. Today these issues are reported through scattered informal channels
+(the SUG, community chiefs, WhatsApp groups, the police), many are never reported for fear of
+victimisation, and reporters rarely learn what happened to their complaint.</p>
+<p>IRO provides a single, neutral outlet that:</p>
+<ul>
+  <li>lets any student or indigene submit an issue report, anonymously if they wish;</li>
+  <li>gives every report a unique ticket ID that the reporter uses to track its progress;</li>
+  <li>gives the IRO desk officer a dashboard to view, filter, update, escalate and close reports;</li>
+  <li>keeps a timestamped history of every status change for accountability.</li>
+</ul>
+<p><b>Out of scope for version 1.0 (the mini interface):</b> SMS/e-mail notifications, file/photo
+uploads, a server-side database, multiple officer accounts and Yoruba translation. These are listed as
+future enhancements in Appendix B.</p>
+
+<h3>1.3 Definitions, Acronyms and Abbreviations</h3>
+<table>
+  <tr><th style="width:22%">Term</th><th>Meaning</th></tr>
+  <tr><td>IRO</td><td>Issues Reporting Outlet – the system specified here.</td></tr>
+  <tr><td>AAUA</td><td>Adekunle Ajasin University, Akungba-Akoko, Ondo State, Nigeria.</td></tr>
+  <tr><td>Indigene</td><td>A native or long-term resident of Akungba, Iwaro, Etioro, Ayegunle, Oke-Oka or neighbouring communities.</td></tr>
+  <tr><td>Reporter</td><td>Any user (student, indigene or other) who submits a report.</td></tr>
+  <tr><td>Desk Officer</td><td>The administrator who manages reports on the IRO desk.</td></tr>
+  <tr><td>Escalation Authority</td><td>A body to which a report is forwarded: Students' Affairs, SUG, community leaders (Oba/Baale), campus security or police.</td></tr>
+  <tr><td>Ticket ID</td><td>Unique report reference in the form <code>IRO-YY-XXXXX</code>, e.g. IRO-26-4F7K2.</td></tr>
+  <tr><td>SRS</td><td>Software Requirements Specification.</td></tr>
+  <tr><td>FR / NFR</td><td>Functional requirement / non-functional requirement.</td></tr>
+  <tr><td>UI</td><td>User interface.</td></tr>
+</table>
+
+<h3>1.4 References</h3>
+<ul>
+  <li>IEEE Std 830-1998, <i>IEEE Recommended Practice for Software Requirements Specifications</i>.</li>
+  <li>IRO Community Needs Questionnaire (Google Form) – <code>docs/questionnaire/</code>.</li>
+  <li>IRO Ishikawa Problem Analysis – <code>docs/ishikawa/IRO_Ishikawa.drawio</code>.</li>
+  <li>IRO Use-Case Diagram – <code>docs/use-case/IRO_UseCase.drawio</code>.</li>
+  <li>Nigeria Data Protection Act (NDPA) 2023.</li>
+</ul>
+
+<h3>1.5 Overview</h3>
+<p>Section 2 describes the product in general terms. Section 3 shows the architecture and how the
+major components interact. Sections 4 and 5 list the functional and non-functional requirements.
+Section 6 covers external interfaces, Section 7 the use cases, Section 8 the data, and Section 9
+traces the requirements back to the root causes found in the Ishikawa analysis.</p>
+
+<h2>2. Overall Description</h2>
+<h3>2.1 Product Perspective</h3>
+<p>IRO is a new, self-contained web application. Version 1.0 is a static front-end (HTML, CSS,
+JavaScript) that runs in any modern browser and stores data in the browser's <code>localStorage</code>.
+All data access goes through a single data-layer object (<code>IssueStore</code>), so a later version can
+replace browser storage with a server API and database without changing the user interface.</p>
+
+<h3>2.2 Product Functions (summary)</h3>
+<ul>
+  <li>Present the purpose of IRO, reporting guidelines and issue categories.</li>
+  <li>Capture an issue report with reporter type, category, severity, location, date, title and description.</li>
+  <li>Allow anonymous reporting.</li>
+  <li>Validate input and generate a unique ticket ID.</li>
+  <li>Let reporters track status and history with the ticket ID.</li>
+  <li>Let the desk officer log in, view statistics, search/filter reports, view details, change status with a note, escalate and delete reports.</li>
+</ul>
+
+<h3>2.3 User Classes and Characteristics</h3>
+<table>
+  <tr><th style="width:20%">User class</th><th>Description</th><th style="width:22%">Technical skill</th></tr>
+  <tr><td>Student</td><td>Undergraduate or postgraduate student of AAUA, on or off campus. May supply a matric number.</td><td>Medium–high; mostly smartphone users.</td></tr>
+  <tr><td>Indigene</td><td>Landlord, trader, driver, farmer, chief or other resident of the host communities. Selects their community.</td><td>Low–medium; a simple, clear interface is essential.</td></tr>
+  <tr><td>Other reporter</td><td>Staff, visitors, traders not from the communities.</td><td>Varies.</td></tr>
+  <tr><td>IRO Desk Officer</td><td>Staff member (e.g. from Students' Affairs or a joint town–gown committee) who manages reports.</td><td>Medium; trained to use the dashboard.</td></tr>
+  <tr><td>Escalation Authority</td><td>Secondary actor that receives escalated issues offline; does not log in to v1.0.</td><td>N/A</td></tr>
+</table>
+
+<h3>2.4 Operating Environment</h3>
+<ul>
+  <li>Client: any modern browser (Chrome, Firefox, Edge, Safari, Opera Mini excluded) on Android, iOS, Windows, macOS or Linux.</li>
+  <li>Server: none required for v1.0; the files can be opened locally or hosted on any static host (e.g. GitHub Pages).</li>
+</ul>
+
+<h3>2.5 Design and Implementation Constraints</h3>
+<ul>
+  <li>Must be simple to build and submit within one week (course deadline).</li>
+  <li>Plain HTML5, CSS3 and JavaScript (ES6); no frameworks or build tools.</li>
+  <li>Data in v1.0 is held in the browser, so reports are visible only on the device where they were made.</li>
+  <li>Must respect the confidentiality of reporters in line with the NDPA 2023.</li>
+</ul>
+
+<h3>2.6 Assumptions and Dependencies</h3>
+<ul>
+  <li>Users have access to a browser with JavaScript enabled.</li>
+  <li>The university and community leaders agree to act on escalated reports.</li>
+  <li>A production deployment will add a server-side database and proper authentication.</li>
+</ul>
+
+<h2>3. System Architecture &amp; Interaction of Major Components</h2>
+<h3>3.1 Major Components</h3>
+<table>
+  <tr><th style="width:24%">Component</th><th style="width:22%">Files</th><th>Responsibility</th></tr>
+  <tr><td>Presentation layer (pages)</td><td>index.html, report.html, track.html, admin.html, css/style.css</td><td>Displays the UI: home &amp; guidelines, report form, tracking page and admin desk.</td></tr>
+  <tr><td>ReportForm controller</td><td>js/report.js</td><td>Shows/hides student or indigene fields, collects and validates input, calls IssueStore.create() and shows the ticket ID.</td></tr>
+  <tr><td>Tracker controller</td><td>js/track.js</td><td>Looks up a ticket ID via IssueStore.findById() and renders status and history (no personal data shown).</td></tr>
+  <tr><td>AdminDesk controller</td><td>js/admin.js</td><td>Handles login/logout, statistics, search/filter, detail view, status updates, escalation and deletion.</td></tr>
+  <tr><td>IssueStore (data layer)</td><td>js/store.js</td><td>Single point of access to data: create, read, find, update status, delete, statistics, ticket ID generation.</td></tr>
+  <tr><td>IRO configuration</td><td>js/store.js</td><td>Holds categories, communities, statuses, severities and the demo passcode.</td></tr>
+  <tr><td>Storage</td><td>Browser localStorage (key <code>iro_issues</code>)</td><td>Persists the list of issues as JSON. Replaced by a server database in future.</td></tr>
+</table>
+
+<h3>3.2 Component Interaction Diagram</h3>
+<pre>
+  +-----------+     +----------------+                    +-------------------+
+  | Reporter  |---->|  report.html   |---> ReportForm --->|                   |
+  | (Student/ |     +----------------+    validate()      |                   |
+  | Indigene) |     +----------------+                    |    IssueStore     |     +--------------+
+  |           |---->|  track.html    |---> Tracker ------>|   (store.js)      |<--->| localStorage |
+  +-----------+     +----------------+    findById()      |  create/find/     |     |  (JSON list) |
+                                                          |  updateStatus/    |     +--------------+
+  +-----------+     +----------------+                    |  remove/stats     |
+  | IRO Desk  |---->|  admin.html    |---> AdminDesk ---->|                   |
+  | Officer   |     +----------------+    login/filter/   +-------------------+
+  +-----------+                           update/escalate
+        |
+        |  (offline) escalated report
+        v
+  +--------------------------+
+  | Escalation Authority     |
+  +--------------------------+
+</pre>
+
+<h3>3.3 Key Interaction Sequences</h3>
+<p><b>(a) Submitting a report.</b> Reporter opens report.html → selects reporter type (ReportForm shows
+matric field for students or community field for indigenes) → fills the form → ReportForm.validate()
+checks every field → IssueStore.create() builds the issue object, generates a ticket ID, sets status
+<i>Submitted</i>, adds the first history entry and saves to storage → ReportForm displays the ticket ID and a
+"Track this report" link.</p>
+<p><b>(b) Tracking a report.</b> Reporter enters the ticket ID on track.html (or follows the link) →
+Tracker calls IssueStore.findById() → if found, the title, category, severity, current status and full
+history are shown; otherwise an error message is shown. Name, contact and description are never shown on
+this page.</p>
+<p><b>(c) Managing a report.</b> Desk officer logs in on admin.html → AdminDesk loads IssueStore.stats() and
+IssueStore.getAll() → officer searches/filters and opens a report → officer chooses a new status
+(<i>Under Review, Escalated, Resolved, Closed</i>) and writes a note → IssueStore.updateStatus() records the
+change with a timestamp → the reporter sees the new status and note the next time they track the ticket.
+Choosing <i>Escalated</i> means the officer forwards the case to the relevant authority.</p>
+
+<h3>3.4 Report Status Life-Cycle</h3>
+<pre>
+  Submitted --> Under Review --> Escalated --> Resolved --> Closed
+       \              \______________________/^              ^
+        \_____________________________________|______________|
+   (the officer may move a report to any status; every move is logged)
+</pre>
+
+<h2>4. Functional Requirements</h2>
+<p>Priority: <b>H</b> = must have (in v1.0), <b>M</b> = should have, <b>L</b> = could have (future).</p>
+<table>
+  <tr><th style="width:8%">ID</th><th style="width:20%">Requirement</th><th>Description</th><th style="width:6%">Pri.</th></tr>
+  <tr><td colspan="4"><b>4.1 Public information</b></td></tr>
+  <tr><td>FR-01</td><td>Home page</td><td>The system shall display the purpose of IRO, the four-step reporting process, the list of issue categories and an emergency notice.</td><td>H</td></tr>
+  <tr><td>FR-02</td><td>Navigation</td><td>Every page shall have a navigation bar linking Home, Report an Issue, Track Report and Admin.</td><td>H</td></tr>
+  <tr><td colspan="4"><b>4.2 Issue reporting</b></td></tr>
+  <tr><td>FR-03</td><td>Reporter type</td><td>The system shall require the reporter to choose Student, Indigene or Other.</td><td>H</td></tr>
+  <tr><td>FR-04</td><td>Conditional fields</td><td>If Student is chosen the system shall show an optional matric-number field; if Indigene is chosen it shall show a required community list (Akungba, Iwaro, Etioro, Ayegunle, Oke-Oka, Other).</td><td>H</td></tr>
+  <tr><td>FR-05</td><td>Anonymous reporting</td><td>The system shall let the reporter tick "Report anonymously"; the name and contact fields shall then be hidden and shall not be stored.</td><td>H</td></tr>
+  <tr><td>FR-06</td><td>Issue details</td><td>The system shall capture category, severity (Low, Medium, High, Emergency), location, incident date, short title and description.</td><td>H</td></tr>
+  <tr><td>FR-07</td><td>Validation</td><td>The system shall reject a report and show a clear message if a required field is empty, the date is in the future, the title is shorter than 5 characters, the description is shorter than 20 characters, or a contact given is not a valid phone number or e-mail.</td><td>H</td></tr>
+  <tr><td>FR-08</td><td>Ticket generation</td><td>On a valid submission the system shall create a unique ticket ID of the form IRO-YY-XXXXX (no ambiguous characters 0, O, 1, I) and set status to Submitted.</td><td>H</td></tr>
+  <tr><td>FR-09</td><td>Confirmation</td><td>The system shall display the ticket ID with a link to track the report.</td><td>H</td></tr>
+  <tr><td colspan="4"><b>4.3 Tracking</b></td></tr>
+  <tr><td>FR-10</td><td>Track by ticket</td><td>The system shall let anyone enter a ticket ID (case-insensitive) and view the report's title, category, severity, date, current status and status history with notes.</td><td>H</td></tr>
+  <tr><td>FR-11</td><td>Privacy on tracking</td><td>The tracking page shall not display the reporter's name, contact, matric number or description.</td><td>H</td></tr>
+  <tr><td>FR-12</td><td>Unknown ticket</td><td>If no report matches, the system shall show "No report found with that ticket ID".</td><td>H</td></tr>
+  <tr><td colspan="4"><b>4.4 Desk officer (administration)</b></td></tr>
+  <tr><td>FR-13</td><td>Login</td><td>The admin desk shall be accessible only after a correct passcode is entered; the session ends on logout or when the browser tab is closed.</td><td>H</td></tr>
+  <tr><td>FR-14</td><td>Dashboard statistics</td><td>The system shall show total reports, open reports, active emergencies and resolved reports.</td><td>H</td></tr>
+  <tr><td>FR-15</td><td>List, search &amp; filter</td><td>The system shall list all reports newest first and allow search by ticket ID, title or location, and filtering by status, category and reporter type.</td><td>H</td></tr>
+  <tr><td>FR-16</td><td>View details</td><td>The system shall show a report's full details, including reporter identity (or "Anonymous") and history.</td><td>H</td></tr>
+  <tr><td>FR-17</td><td>Update status</td><td>The officer shall be able to set a new status with an optional note; the system shall append a timestamped history entry.</td><td>H</td></tr>
+  <tr><td>FR-18</td><td>Escalate</td><td>The officer shall be able to mark a report as Escalated with a note naming the authority it was forwarded to.</td><td>H</td></tr>
+  <tr><td>FR-19</td><td>Delete</td><td>The officer shall be able to delete a report after confirming (e.g. spam or duplicates).</td><td>M</td></tr>
+  <tr><td colspan="4"><b>4.5 Future functions</b></td></tr>
+  <tr><td>FR-20</td><td>Notifications</td><td>The system should send SMS/e-mail alerts to reporters who give contact details when status changes.</td><td>L</td></tr>
+  <tr><td>FR-21</td><td>Evidence upload</td><td>The system should allow photo/video attachments.</td><td>L</td></tr>
+  <tr><td>FR-22</td><td>Reports &amp; trends</td><td>The system should produce monthly summaries by category and community.</td><td>L</td></tr>
+</table>
+
+<h2>5. Non-Functional Requirements</h2>
+<table>
+  <tr><th style="width:9%">ID</th><th style="width:16%">Attribute</th><th>Requirement</th></tr>
+  <tr><td colspan="3"><b>5.1 Performance</b></td></tr>
+  <tr><td>NFR-01</td><td>Response time</td><td>Each page shall load and become usable within 2 seconds on a 3G mobile connection; form submission and search shall respond within 1 second for up to 1,000 stored reports.</td></tr>
+  <tr><td>NFR-02</td><td>Page weight</td><td>Total size of the app shall stay under 200 KB, with no external libraries, so it works on low-data plans.</td></tr>
+  <tr><td colspan="3"><b>5.2 Security &amp; Privacy</b></td></tr>
+  <tr><td>NFR-03</td><td>Confidentiality</td><td>Anonymous reports shall store no name or contact. Identifying data shall be visible only on the admin desk.</td></tr>
+  <tr><td>NFR-04</td><td>Access control</td><td>Admin functions shall require authentication. (v1.0 uses a demo passcode; production shall use server-side authentication with hashed passwords and HTTPS.)</td></tr>
+  <tr><td>NFR-05</td><td>Input safety</td><td>All user text shall be HTML-escaped before display to prevent script injection (XSS).</td></tr>
+  <tr><td>NFR-06</td><td>Ticket secrecy</td><td>Ticket IDs shall be random (32<sup>5</sup> ≈ 33 million combinations per year) so they cannot easily be guessed.</td></tr>
+  <tr><td>NFR-07</td><td>Data protection</td><td>Handling of personal data shall comply with the Nigeria Data Protection Act 2023.</td></tr>
+  <tr><td colspan="3"><b>5.3 Usability &amp; Accessibility</b></td></tr>
+  <tr><td>NFR-08</td><td>Ease of use</td><td>A first-time user shall be able to submit a report in under 3 minutes without help.</td></tr>
+  <tr><td>NFR-09</td><td>Responsive design</td><td>The UI shall work on screens from 320 px (small phones) to desktop without horizontal scrolling.</td></tr>
+  <tr><td>NFR-10</td><td>Accessibility</td><td>All inputs shall have visible labels, keyboard focus shall be visible, and text contrast shall meet WCAG 2.1 AA.</td></tr>
+  <tr><td>NFR-11</td><td>Clear language</td><td>Messages shall be in plain English; Yoruba support is a future enhancement.</td></tr>
+  <tr><td colspan="3"><b>5.4 Reliability &amp; Availability</b></td></tr>
+  <tr><td>NFR-12</td><td>Data integrity</td><td>Every status change shall be logged; history entries shall never be edited or removed except when the whole report is deleted.</td></tr>
+  <tr><td>NFR-13</td><td>Fault tolerance</td><td>If stored data is unreadable the system shall start with an empty list rather than crash.</td></tr>
+  <tr><td>NFR-14</td><td>Availability</td><td>When hosted, the system shall be available 99% of the time (excluding planned maintenance).</td></tr>
+  <tr><td colspan="3"><b>5.5 Maintainability &amp; Portability</b></td></tr>
+  <tr><td>NFR-15</td><td>Modularity</td><td>All data access shall go through IssueStore so storage can be replaced without changing UI code.</td></tr>
+  <tr><td>NFR-16</td><td>Configurability</td><td>Categories, communities, statuses and severities shall be defined in one configuration object (IRO).</td></tr>
+  <tr><td>NFR-17</td><td>Portability</td><td>The app shall run in current versions of Chrome, Firefox, Edge and Safari with no installation.</td></tr>
+  <tr><td>NFR-18</td><td>Code quality</td><td>Source shall be commented and kept in a public GitHub repository with documentation.</td></tr>
+  <tr><td colspan="3"><b>5.6 Social / Ethical</b></td></tr>
+  <tr><td>NFR-19</td><td>Neutrality</td><td>The system shall treat students and indigenes equally; the wording of forms shall not blame either group.</td></tr>
+</table>
+
+<h2>6. External Interface Requirements</h2>
+<h3>6.1 User Interfaces</h3>
+<table>
+  <tr><th style="width:20%">Screen</th><th>Main elements</th></tr>
+  <tr><td>Home (index.html)</td><td>Banner, "Report an Issue" and "Track My Report" buttons, 4-step process cards, categories, emergency notice.</td></tr>
+  <tr><td>Report (report.html)</td><td>Reporter type, matric/community, anonymous checkbox, name, contact, category, severity, location, date, title, description, Submit; success panel with ticket ID.</td></tr>
+  <tr><td>Track (track.html)</td><td>Ticket ID box, Track button, result card with status badge and timeline.</td></tr>
+  <tr><td>Admin (admin.html)</td><td>Login form; dashboard with 4 statistic cards, search and filters, report table, detail panel with history, status update form and Delete button.</td></tr>
+</table>
+<h3>6.2 Hardware Interfaces</h3>
+<p>None beyond a device capable of running a modern web browser.</p>
+<h3>6.3 Software Interfaces</h3>
+<p>Browser Web Storage API (localStorage, sessionStorage). Future: REST API to a server database
+(e.g. Node.js/PHP with MySQL), SMS gateway and e-mail service.</p>
+<h3>6.4 Communication Interfaces</h3>
+<p>HTTP/HTTPS when hosted. Production deployment shall use HTTPS only.</p>
+
+<h2 class="pb">7. Use-Case Model</h2>
+<figure>
+  <img src="../use-case/IRO_UseCase.png" alt="IRO use-case diagram">
+  <figcaption>Figure 1: IRO use-case diagram (source: docs/use-case/IRO_UseCase.drawio)</figcaption>
+</figure>
+<h3>7.1 Actors</h3>
+<ul>
+  <li><b>Reporter</b> (generalised from <b>Student</b> and <b>Indigene</b>) – submits and tracks reports.</li>
+  <li><b>IRO Desk Officer</b> – manages reports.</li>
+  <li><b>Escalation Authority</b> – receives escalated reports (Students' Affairs, community leaders, police).</li>
+</ul>
+<h3>7.2 Use-Case Descriptions</h3>
+<table>
+  <tr><th style="width:18%">Use case</th><th style="width:14%">Actor</th><th>Main flow</th><th style="width:20%">Alternative / notes</th></tr>
+  <tr><td>UC-01 View Home &amp; Guidelines</td><td>Reporter</td><td>Reporter opens IRO and reads the process, categories and emergency notice.</td><td>–</td></tr>
+  <tr><td>UC-02 Submit Issue Report</td><td>Reporter</td><td>1. Choose reporter type. 2. Fill details. 3. Submit. 4. System validates (UC-03), generates ticket (UC-04) and shows it.</td><td>Validation fails → message shown, nothing saved.</td></tr>
+  <tr><td>UC-03 Validate Report Details</td><td>System («include»)</td><td>Checks required fields, date, lengths and contact format.</td><td>–</td></tr>
+  <tr><td>UC-04 Generate Ticket ID</td><td>System («include»)</td><td>Creates unique IRO-YY-XXXXX ID and first history entry.</td><td>–</td></tr>
+  <tr><td>UC-05 Report Anonymously</td><td>Reporter («extend» UC-02)</td><td>Reporter ticks Anonymous; identity fields are hidden and not stored.</td><td>–</td></tr>
+  <tr><td>UC-06 Track Report Status</td><td>Reporter</td><td>Enter ticket ID → system shows status and history (UC-07).</td><td>Unknown ID → error.</td></tr>
+  <tr><td>UC-07 View Status History</td><td>System («include»)</td><td>Displays every status change with time and note.</td><td>–</td></tr>
+  <tr><td>UC-08 Log In to Desk</td><td>Desk Officer</td><td>Enter passcode → dashboard opens.</td><td>Wrong passcode → error.</td></tr>
+  <tr><td>UC-09 View &amp; Filter Reports</td><td>Desk Officer</td><td>Search by text, filter by status/category/reporter type.</td><td>No match → "No reports match".</td></tr>
+  <tr><td>UC-10 View Report Details</td><td>Desk Officer</td><td>Open a report to see all details and history.</td><td>–</td></tr>
+  <tr><td>UC-11 Update Report Status</td><td>Desk Officer</td><td>Choose new status, add note, save → history updated.</td><td>–</td></tr>
+  <tr><td>UC-12 Escalate Report</td><td>Desk Officer → Escalation Authority («extend» UC-11)</td><td>Set status Escalated with note naming the authority; case is forwarded.</td><td>Forwarding is offline in v1.0.</td></tr>
+  <tr><td>UC-13 Delete Report</td><td>Desk Officer</td><td>Confirm deletion → report removed.</td><td>Cancel → nothing changes.</td></tr>
+  <tr><td>UC-14 View Dashboard Statistics</td><td>Desk Officer</td><td>See totals of all, open, emergency and resolved reports.</td><td>–</td></tr>
+</table>
+
+<h2>8. Data Requirements</h2>
+<h3>8.1 Issue Object (data dictionary)</h3>
+<table>
+  <tr><th style="width:18%">Field</th><th style="width:14%">Type</th><th>Description / rule</th></tr>
+  <tr><td>id</td><td>String</td><td>Ticket ID, IRO-YY-XXXXX, unique.</td></tr>
+  <tr><td>reporterType</td><td>String</td><td>Student | Indigene | Other (required).</td></tr>
+  <tr><td>anonymous</td><td>Boolean</td><td>True if reporter chose anonymity.</td></tr>
+  <tr><td>name</td><td>String</td><td>Reporter's name; empty if anonymous.</td></tr>
+  <tr><td>contact</td><td>String</td><td>Phone or e-mail; empty if anonymous.</td></tr>
+  <tr><td>matricNo</td><td>String</td><td>Optional; students only.</td></tr>
+  <tr><td>community</td><td>String</td><td>Required for indigenes.</td></tr>
+  <tr><td>category</td><td>String</td><td>One of the configured categories.</td></tr>
+  <tr><td>severity</td><td>String</td><td>Low | Medium | High | Emergency.</td></tr>
+  <tr><td>location</td><td>String</td><td>Where the incident happened.</td></tr>
+  <tr><td>incidentDate</td><td>Date (YYYY-MM-DD)</td><td>Not in the future.</td></tr>
+  <tr><td>title</td><td>String (5–100)</td><td>Short summary.</td></tr>
+  <tr><td>description</td><td>String (20–2000)</td><td>Full account.</td></tr>
+  <tr><td>status</td><td>String</td><td>Submitted | Under Review | Escalated | Resolved | Closed.</td></tr>
+  <tr><td>createdAt</td><td>ISO date-time</td><td>Time of submission.</td></tr>
+  <tr><td>history</td><td>Array of {status, note, at}</td><td>Append-only log of status changes.</td></tr>
+</table>
+<h3>8.2 Configuration Lists</h3>
+<p><b>Categories:</b> Security / Safety; Accommodation &amp; Rent; Land &amp; Property; Harassment / Assault;
+Cultural &amp; Festival Conflicts; Sanitation &amp; Environment; Water, Power &amp; Utilities; Transport &amp; Okada;
+Market &amp; Pricing; Other.<br>
+<b>Communities:</b> Akungba, Iwaro, Etioro, Ayegunle, Oke-Oka, Other.</p>
+
+<h2>9. Problem Analysis (Ishikawa) and Requirements Traceability</h2>
+<figure>
+  <img src="../ishikawa/IRO_Ishikawa.png" alt="IRO Ishikawa diagram">
+  <figcaption>Figure 2: Ishikawa (fishbone) analysis of the problem (source: docs/ishikawa/IRO_Ishikawa.drawio)</figcaption>
+</figure>
+<table>
+  <tr><th style="width:22%">Cause category</th><th>Root cause</th><th style="width:30%">Addressed by</th></tr>
+  <tr><td>People</td><td>Fear of victimisation / reprisal</td><td>FR-05, FR-11, NFR-03</td></tr>
+  <tr><td>People</td><td>Low awareness of reporting channels</td><td>FR-01, FR-02</td></tr>
+  <tr><td>Process / Methods</td><td>No single formal reporting channel</td><td>FR-03 – FR-09</td></tr>
+  <tr><td>Process / Methods</td><td>No tracking or feedback to reporter</td><td>FR-08, FR-10, FR-17</td></tr>
+  <tr><td>Management / Policy</td><td>Unclear responsibility; weak enforcement</td><td>FR-18, FR-17 (logged accountability)</td></tr>
+  <tr><td>Management / Policy</td><td>No anonymity / confidentiality policy</td><td>FR-05, NFR-03, NFR-07</td></tr>
+  <tr><td>Technology</td><td>No dedicated platform; records get lost</td><td>Whole system; NFR-12</td></tr>
+  <tr><td>Technology</td><td>No data for trend analysis</td><td>FR-14, FR-15, FR-22</td></tr>
+  <tr><td>Communication</td><td>Victims don't know who to contact; bodies don't share information</td><td>FR-01, FR-18</td></tr>
+  <tr><td>Environment</td><td>Scattered housing; insecurity</td><td>FR-06 (location, severity), FR-14 (emergencies)</td></tr>
+</table>
+
+<h2>10. Appendices</h2>
+<h3>Appendix A – Questionnaire</h3>
+<p>A Google Form questionnaire was designed for both students and indigenes, branching after the first
+question so that each group answers questions relevant to them (level/faculty/residence for students;
+community/occupation/years of residence for indigenes) before common sections on issues experienced,
+current reporting channels and desired IRO features. See <code>docs/questionnaire/</code>.</p>
+<h3>Appendix B – Future Enhancements</h3>
+<ul>
+  <li>Server database and REST API; multiple officer accounts with roles.</li>
+  <li>SMS / e-mail / WhatsApp status notifications; USSD reporting for feature phones.</li>
+  <li>Photo and video evidence upload.</li>
+  <li>Yoruba language option.</li>
+  <li>Escalation authorities log in to respond directly.</li>
+  <li>Monthly public report of resolved issues by category and community.</li>
+</ul>
+
+</body>
+</html>

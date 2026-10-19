@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRO – Issues Reporting Outlet</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html">IR<span>O</span></a>
+      <ul>
+        <li><a class="link active" href="index.html">Home</a></li>
+        <li><a class="link" href="report.html">Report an Issue</a></li>
+        <li><a class="link" href="track.html">Track Report</a></li>
+        <li><a class="link" href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Issues Reporting Outlet</h1>
+      <p>
+        One safe place for AAUA students and the indigenes of Akungba, Iwaro,
+        Etioro, Ayegunle and neighbouring communities to report issues that
+        affect town–gown relations — and to follow them until they are resolved.
+      </p>
+      <a class="btn" href="report.html">Report an Issue</a>
+      <a class="btn secondary" href="track.html">Track My Report</a>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>1. Report</h3>
+        <p>Describe what happened, where and when. You can stay anonymous.</p>
+      </div>
+      <div class="card">
+        <h3>2. Get a ticket</h3>
+        <p>You receive a ticket ID (e.g. <code>IRO-26-4F7K2</code>). Keep it safe.</p>
+      </div>
+      <div class="card">
+        <h3>3. Track</h3>
+        <p>Use your ticket ID to see the status and any updates from the IRO desk.</p>
+      </div>
+      <div class="card">
+        <h3>4. Resolution</h3>
+        <p>The IRO desk reviews, escalates to the right authority and records the outcome.</p>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:24px">
+      <h2>What can I report?</h2>
+      <p id="categoryList"></p>
+      <div class="notice">
+        <strong>Emergency?</strong> IRO is not an emergency line. If anyone is in
+        immediate danger, contact campus security or the nearest police division first,
+        then file a report here.
+      </div>
+    </section>
+  </main>
+
+  <footer>IRO &copy; 2026 · CSC426 Weekly Dev · Adekunle Ajasin University, Akungba-Akoko</footer>
+
+  <script src="js/store.js"></script>
+  <script>
+    document.getElementById("categoryList").textContent = IRO.CATEGORIES.join(" · ");
+  </script>
+</body>
+</html>
