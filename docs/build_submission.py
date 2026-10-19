@@ -17,6 +17,7 @@ DOCS = ROOT / "docs"
 BROWSER = next(filter(None, map(shutil.which, ["chromium", "google-chrome", "chrome"])))
 
 STUDENT = "Joshua Omolafe"
+MATRIC = "220404244"
 GITHUB = "github.com/Joshua989/Weekend-3-01-07-26-"
 
 BASE_CSS = """
@@ -82,7 +83,7 @@ td.p {{ width: 22%; text-align: center; }}
 </div>
 <table class="details" style="margin-top:22pt">
   <tr><td>Name</td><td>{STUDENT}</td></tr>
-  <tr><td>Matric No.</td><td>&nbsp;</td></tr>
+  <tr><td>Matric No.</td><td>{MATRIC}</td></tr>
   <tr><td>Course lecturer</td><td>Dr. O. O. Ajayi</td></tr>
   <tr><td>GitHub repository</td><td>{GITHUB}</td></tr>
 </table>

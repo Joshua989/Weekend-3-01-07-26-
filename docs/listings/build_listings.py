@@ -31,7 +31,7 @@ def code_listing():
     parts = [f"<!DOCTYPE html><html><head><meta charset='UTF-8'><title>IRO – Code Listing</title>"
              f"<style>{STYLE}</style></head><body>",
              "<h1>IRO – Issues Reporting Outlet: Code Listing</h1>",
-             "<p style='text-align:center'>CSC426 Weekly Dev – Weekend 3 · Joshua Omolafe (Joshua989)</p>"]
+             "<p style='text-align:center'>CSC426 Weekly Dev – Weekend 3 · Joshua Omolafe · Matric No. 220404244</p>"]
     for rel in FILES:
         lines = (ROOT / rel).read_text(encoding="utf-8").rstrip("\n").split("\n")
         parts.append(f"<h2>{html.escape(rel)} ({len(lines)} lines)</h2><table>")
